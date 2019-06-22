@@ -1,0 +1,1769 @@
+<!DOCTYPE html>
+<!-- saved from url=(0075)http://markazlar.bimm.uz/test/prosess.php?type=kirish&lid=301587249&lang=uz -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		
+		<title>BIMM - Markazlar-test</title>
+
+		<meta name="description" content="Masofaviy test sinovlari, on-line test">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<link rel="shortcut icon" href="http://markazlar.bimm.uz/bimm.ico">
+		<!-- bootstrap & fontawesome -->
+		<link rel="stylesheet" href="./bootstrap.min.css">
+		<link rel="stylesheet" href="./font-awesome.min.css">
+		<link rel="stylesheet" href="./jquery-confirm.min.css">
+		<link rel="stylesheet" href="./style.css">
+
+		<!-- page specific plugin styles -->
+
+		<!-- text fonts -->
+		<link rel="stylesheet" href="./css.css">
+		<link rel="stylesheet" href="./ace.min.css" class="ace-main-stylesheet" id="main-ace-style">
+		<!--[if lte IE 9]>
+			<link rel="stylesheet" href="../dist/css/ace-part2.min.css" class="ace-main-stylesheet" />
+		<![endif]-->
+
+		<!--[if lte IE 9]>
+		  <link rel="stylesheet" href="../dist/css/ace-ie.min.css" />
+		<![endif]-->	
+		<!-- ace settings handler -->
+		<script src="./ace-extra.min.js.Без названия"></script>		
+	</head>
+
+	<body class="no-skin page-content">
+		<div class="page-content">
+		
+		<img src="./883615.jpg" style="height:100px;position:absolute;left:0;top:0;z-index:9999">
+		<h4 class="blue" style="float:right"><span class="middle">Salixova Muxayyo Shakirovna</span></h4>
+		<div id="clear"></div>		
+<!--
+<script language="javascript">
+
+//***************************
+
+document.onkeydown = function checkKeycode(event){
+	var keycode;
+	if(!event) var event = window.event;
+	if (event.keyCode) keycode = event.keyCode; // IE
+	else if(event.which) keycode = event.which; // all browsers
+	if (keycode == 39 || keycode == 38){next();} // o`ng yoki yuqori
+	if (keycode == 37 || keycode == 40){prev();} // chap yoki quyi
+}
+
+var current = 1;
+
+function next(){
+	var max = document.getElementById('max_count').value;
+	if (current < max-1){current++;}//else{alert('Bu oxirgi savol!');}
+	go_to(current);
+}
+
+function prev(){
+	if (current > 1){ current--;}//else{alert('Bu birinchi savol!');}
+	go_to(current);	
+}
+
+function go_to(j){
+	var max = document.getElementById('max_count').value;
+	for (i=1;i <= max;i++){
+		var elem = document.getElementById('block_'+i);
+		if (elem != null){elem.style.display = 'none';}
+	}
+	current = j;
+	find_current(j);
+	document.getElementById('block_'+j).style.display='block';
+	
+/* 	var id = $('#sel_'+j).attr("name");
+	$.ajax({
+		type: "GET", 
+		url: "rem_action.php",
+		data: "LoadModulName=true&id="+id,
+		success: function(html){
+			$(".smaller #modul").html(html);
+		}
+	}); */		
+}
+
+function find_current(c){
+	var max = document.getElementById('max_count').value;
+	for (var i=1;i <= max;i++){
+		var elem = document.getElementById('sel_'+i);
+		if (elem != null){
+			$('#sel_'+i).css({"font-weight":"400","text-shadow": "0 -1px 0 rgba(0,0,0,.25)"});
+			var has = $('#sel_'+i).hasClass("btn-purple");
+			if (!has){
+				$('#sel_'+i).removeClass().addClass('btn').addClass('btn-light').addClass('btn-xs');
+			}
+		}
+	}
+	
+	var has2 = $('#sel_'+c).hasClass("btn-purple");
+	if (!has2){
+		$('#sel_'+c).removeClass().addClass('btn').addClass('btn-warning').addClass('btn-xs');
+	}
+	$('#sel_'+c).css({"font-weight":"600","text-shadow": "0 -1px 10px yellow"});
+}
+
+function Is_selected(j){
+	var res = false;
+	var item1 = document.getElementById('javob_'+j+'_1'); var has1 = $(item1).hasClass("alert-danger");
+	var item2 = document.getElementById('javob_'+j+'_2'); var has2 = $(item2).hasClass("alert-danger");
+	var item3 = document.getElementById('javob_'+j+'_3'); var has3 = $(item3).hasClass("alert-danger");
+	var item4 = document.getElementById('javob_'+j+'_4'); var has4 = $(item4).hasClass("alert-danger");
+	var item5 = document.getElementById('javob_'+j+'_5'); var has5 = $(item5).hasClass("alert-danger");
+	if ((item1 != null) && has1){ res = true;}
+	if ((item2 != null) && has2){ res = true;}
+	if ((item3 != null) && has3){ res = true;}
+	if ((item4 != null) && has4){ res = true;}
+	if ((item5 != null) && has5){ res = true;}
+	if (res == true){
+		$('#sel_'+j).removeClass().addClass('btn').addClass('btn-purple').addClass('btn-xs');
+	}
+}
+
+var use_id = 301587249;
+var otm_id = 48;
+var rem_id = 1667;
+
+var answers = [];
+
+function belgila(j, c, m){
+	for (i=1;i<=5;i++){
+		var elem = document.getElementById('javob_'+j+'_'+i);
+		if (elem != null){
+			$('#javob_'+j+'_'+i).removeClass().addClass('alert').addClass('alert-success');
+		}
+	}
+	$('#javob_'+j+'_'+c).removeClass().addClass('alert').addClass('alert-danger');
+	sid = parseInt(document.getElementById('s_id_'+j).value, 10);
+	table_id = parseInt(document.getElementById('table_id_'+j).value, 10);
+	
+	Is_selected(j);
+	
+	var curr_ans = [table_id,sid,j,c,m];
+
+	var selected = false;
+	
+	for (i=0; i<answers.length; i++){
+		if (answers[i][0] == table_id && answers[i][1] == sid){
+			answers[i] = curr_ans;
+			selected = true;
+		}
+	}
+	if (selected == false){	answers.push(curr_ans); }
+	
+/* 	$.ajax({
+		type: "GET", 
+		url: "rem_action.php",
+		data: "put_answer&uid="+use_id+"&otm="+otm_id+"&test_id="+rem_id+"&sav="+sid+"&jav="+c+"&q_n="+j+"&table_id="+table_id+"&modul_id="+m,
+		success: function(html){
+			$("#test_result").html(html);
+			next();
+		}
+	}); */
+	
+    url = "rem_action.php?put_answer&uid="+use_id+"&otm="+otm_id+"&test_id="+rem_id+"&sav="+sid+"&jav="+c+"&q_n="+j+"&table_id="+table_id+"&modul_id="+m;
+    if (window.XMLHttpRequest) { // Non-IE browsers
+      req = new XMLHttpRequest();
+      req.onreadystatechange = targetDiv;
+      try {
+        req.open("GET", url, true);
+      } catch (e) {
+        alert(e);
+      }
+      req.send(null);
+    } else if (window.ActiveXObject) { // IE
+      req = new ActiveXObject("Microsoft.XMLHTTP");
+      if (req) {
+        req.onreadystatechange = targetDiv;
+        req.open("GET", url, true);
+        req.send();
+      }
+    }		
+}
+
+function targetDiv() {
+    if (req.readyState == 4) { // Complete
+          if (req.status == 200) { // OK response
+            document.getElementById("test_result").innerHTML = req.responseText;
+			next();
+          } else {
+            //alert("Uzilish: " + req.statusText);
+			//document.getElementById("asosiy_oyna").innerHTML = '<div class="alert alert-danger"><h1><b>Алоқада узилиш! Опреторга мурожаат қилинг!</b></h1></div>';
+          }
+    }
+}
+	
+function end_test(){
+	var post_arr = "";
+	for (i=0; i<answers.length; i++){
+		post_arr += answers[i][0]+"/"+answers[i][1]+"/"+answers[i][2]+"/"+answers[i][3]+"/"+answers[i][4]+"|";
+	}
+	document.getElementById("s_array").value = post_arr;
+	
+	if (minutes.value <= 0 && seconds.value <= 0){
+		document.forms["frm_stop_rem_test"].submit();
+	}else{
+		if (answers.length<1){
+			alert('Barcha savollarga javob bering!');
+		}else{
+			$.confirm({
+				title: 'Тестни тугатиш',
+				content: 'Агар тестни тугатмоқчи бўлсангиз [Ҳа] тугмасини босинг',
+				confirmButton: 'Ha',
+				confirmButtonClass: 'btn-info',
+				icon: 'fa fa-spinner fa-spin',
+				animation: 'rotateX',
+				confirm: function () {
+					$('form[name=frm_stop_rem_test]').submit();
+				}
+			});
+		}
+	}
+}
+</script>
+
+<input type="hidden" id="rem_test" value="kirish_uz">
+<input type="hidden" id="curr_time" value="39">
+<input type="hidden" id="curr_sec" value="4759">
+<script language="javascript">
+
+var mins = document.getElementById("curr_time").value;
+
+if (mins > 0){var secs = mins * document.getElementById("curr_sec").value;}
+else{var secs = document.getElementById("curr_sec").value;}
+
+function countdown() {
+	setTimeout('Decrement()',1000);
+}
+function Decrement() {
+	if (document.getElementById) {
+		minutes = document.getElementById("minutes");
+		seconds = document.getElementById("seconds");
+		if (seconds < 59) {
+			seconds.value = secs;
+		} else {
+			minutes.value = getminutes();
+			seconds.value = getseconds();
+		}
+		secs--;
+		document.getElementById("curr_sec").value = secs; /**/
+		setTimeout('Decrement()',1000);
+		if (minutes.value == 0 && seconds.value == 0){end_test();}
+	}
+	if (document.getElementById("curr_time").value > 0){document.getElementById("curr_time").value--;}/**/
+}
+
+function getminutes() {
+	mins = Math.floor(secs / 60);
+	return mins;
+}
+function getseconds() {
+	return secs-Math.round(mins *60);
+}
+
+/**************/
+var rem_test = document.getElementById("rem_test").value;
+function upTime(){
+ 	$.ajax({
+		type: "GET", 
+		url: "rem_action.php",
+		data: "updateTestTime&user_id="+use_id+"&rem_test="+rem_test,
+		success: function(html){
+			$("#test_result2").html(html);
+		}	
+	});
+}
+function runUpTime(){
+	setInterval('upTime()',60000);
+}
+/**************/
+</script>
+-->
+
+<div class="widget-box">
+<div class="widget-header widget-header-flat">
+<h4 class="smaller">
+	<div style="float:right">
+		<i class="ace-icon fa fa-clock-o"></i>
+		<input id="minutes" type="text" style="width:30px; margin:1px; border:none; background-color:#f7f7f7; font-size:16px; font-weight: bold;">:<input id="seconds" type="text" style="width:30px; margin:1px; border:none; background-color:#f7f7f7; font-size:16px; font-weight: bold;">
+	</div>
+	<div style="float:right;margin-right:20px;" id="modul"></div>
+</h4>
+</div>
+<div class="widget-body">
+	<div class="widget-main" id="asosiy_oyna">
+	<div id="test_result"></div><div id="test_result2"></div><br>
+	<div class="btn-group btn-corner">
+		<input type="button" onclick="go_to(&#39;1&#39;)" name="2_2" value=" 1 " id="sel_1" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;2&#39;)" name="2_2" value=" 2 " id="sel_2" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;3&#39;)" name="2_2" value=" 3 " id="sel_3" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;4&#39;)" name="2_2" value=" 4 " id="sel_4" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;5&#39;)" name="2_2" value=" 5 " id="sel_5" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;6&#39;)" name="3_2" value=" 6 " id="sel_6" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;7&#39;)" name="3_2" value=" 7 " id="sel_7" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;8&#39;)" name="3_2" value=" 8 " id="sel_8" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;9&#39;)" name="3_2" value=" 9 " id="sel_9" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;10&#39;)" name="3_2" value=" 10 " id="sel_10" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;11&#39;)" name="5_2" value=" 11 " id="sel_11" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;12&#39;)" name="5_2" value=" 12 " id="sel_12" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;13&#39;)" name="5_2" value=" 13 " id="sel_13" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;14&#39;)" name="5_2" value=" 14 " id="sel_14" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;15&#39;)" name="5_2" value=" 15 " id="sel_15" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;16&#39;)" name="6_3" value=" 16 " id="sel_16" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;17&#39;)" name="6_1" value=" 17 " id="sel_17" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;18&#39;)" name="6_2" value=" 18 " id="sel_18" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;19&#39;)" name="6_3" value=" 19 " id="sel_19" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;20&#39;)" name="6_3" value=" 20 " id="sel_20" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;21&#39;)" name="6_1" value=" 21 " id="sel_21" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;22&#39;)" name="6_1" value=" 22 " id="sel_22" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;23&#39;)" name="6_3" value=" 23 " id="sel_23" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;24&#39;)" name="6_3" value=" 24 " id="sel_24" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;25&#39;)" name="6_1" value=" 25 " id="sel_25" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;26&#39;)" name="1_1" value=" 26 " id="sel_26" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;27&#39;)" name="1_1" value=" 27 " id="sel_27" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;28&#39;)" name="1_1" value=" 28 " id="sel_28" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;29&#39;)" name="1_1" value=" 29 " id="sel_29" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;30&#39;)" name="1_1" value=" 30 " id="sel_30" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;31&#39;)" name="1_1" value=" 31 " id="sel_31" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;32&#39;)" name="1_1" value=" 32 " id="sel_32" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;33&#39;)" name="1_1" value=" 33 " id="sel_33" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;34&#39;)" name="1_1" value=" 34 " id="sel_34" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;35&#39;)" name="1_1" value=" 35 " id="sel_35" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;36&#39;)" name="1_1" value=" 36 " id="sel_36" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;37&#39;)" name="1_1" value=" 37 " id="sel_37" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;38&#39;)" name="1_1" value=" 38 " id="sel_38" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;39&#39;)" name="1_1" value=" 39 " id="sel_39" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;40&#39;)" name="1_1" value=" 40 " id="sel_40" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;41&#39;)" name="1_1" value=" 41 " id="sel_41" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;42&#39;)" name="1_1" value=" 42 " id="sel_42" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;43&#39;)" name="1_1" value=" 43 " id="sel_43" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;44&#39;)" name="1_1" value=" 44 " id="sel_44" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;45&#39;)" name="1_1" value=" 45 " id="sel_45" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;46&#39;)" name="1_2" value=" 46 " id="sel_46" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;47&#39;)" name="1_2" value=" 47 " id="sel_47" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;48&#39;)" name="1_2" value=" 48 " id="sel_48" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;49&#39;)" name="1_2" value=" 49 " id="sel_49" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;50&#39;)" name="1_2" value=" 50 " id="sel_50" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;51&#39;)" name="1_2" value=" 51 " id="sel_51" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;52&#39;)" name="1_2" value=" 52 " id="sel_52" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;53&#39;)" name="1_2" value=" 53 " id="sel_53" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;54&#39;)" name="1_2" value=" 54 " id="sel_54" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;55&#39;)" name="1_2" value=" 55 " id="sel_55" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;56&#39;)" name="1_2" value=" 56 " id="sel_56" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;57&#39;)" name="1_2" value=" 57 " id="sel_57" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;58&#39;)" name="1_2" value=" 58 " id="sel_58" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;59&#39;)" name="1_2" value=" 59 " id="sel_59" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;60&#39;)" name="1_2" value=" 60 " id="sel_60" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;61&#39;)" name="1_2" value=" 61 " id="sel_61" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;62&#39;)" name="1_2" value=" 62 " id="sel_62" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;63&#39;)" name="1_2" value=" 63 " id="sel_63" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;64&#39;)" name="1_2" value=" 64 " id="sel_64" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;65&#39;)" name="1_2" value=" 65 " id="sel_65" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;66&#39;)" name="2_1" value=" 66 " id="sel_66" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;67&#39;)" name="2_1" value=" 67 " id="sel_67" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;68&#39;)" name="2_1" value=" 68 " id="sel_68" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;69&#39;)" name="2_1" value=" 69 " id="sel_69" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;70&#39;)" name="2_1" value=" 70 " id="sel_70" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;71&#39;)" name="2_1" value=" 71 " id="sel_71" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;72&#39;)" name="2_1" value=" 72 " id="sel_72" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;73&#39;)" name="2_1" value=" 73 " id="sel_73" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;74&#39;)" name="3_1" value=" 74 " id="sel_74" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;75&#39;)" name="3_1" value=" 75 " id="sel_75" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;76&#39;)" name="3_1" value=" 76 " id="sel_76" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;77&#39;)" name="3_1" value=" 77 " id="sel_77" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;78&#39;)" name="3_1" value=" 78 " id="sel_78" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;79&#39;)" name="3_1" value=" 79 " id="sel_79" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;80&#39;)" name="3_1" value=" 80 " id="sel_80" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;81&#39;)" name="4_1" value=" 81 " id="sel_81" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;82&#39;)" name="4_1" value=" 82 " id="sel_82" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;83&#39;)" name="4_1" value=" 83 " id="sel_83" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;84&#39;)" name="4_1" value=" 84 " id="sel_84" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;85&#39;)" name="4_1" value=" 85 " id="sel_85" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;86&#39;)" name="4_1" value=" 86 " id="sel_86" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;87&#39;)" name="4_1" value=" 87 " id="sel_87" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;88&#39;)" name="4_1" value=" 88 " id="sel_88" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;89&#39;)" name="4_1" value=" 89 " id="sel_89" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;90&#39;)" name="4_1" value=" 90 " id="sel_90" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;91&#39;)" name="5_1" value=" 91 " id="sel_91" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;92&#39;)" name="5_1" value=" 92 " id="sel_92" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;93&#39;)" name="5_1" value=" 93 " id="sel_93" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;94&#39;)" name="5_1" value=" 94 " id="sel_94" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;95&#39;)" name="5_1" value=" 95 " id="sel_95" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;96&#39;)" name="5_1" value=" 96 " id="sel_96" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;97&#39;)" name="5_1" value=" 97 " id="sel_97" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;98&#39;)" name="5_1" value=" 98 " id="sel_98" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;99&#39;)" name="5_1" value=" 99 " id="sel_99" class="btn btn-light btn-xs" style="margin-bottom:1px"><input type="button" onclick="go_to(&#39;100&#39;)" name="5_1" value=" 100 " id="sel_100" class="btn btn-light btn-xs" style="margin-bottom:1px">	</div>
+	
+	<input type="hidden" id="max_count" value="101">
+		<div id="block_1" class="block2" width="100%" style="display:block"><div class="alert alert-info"><div class="reset-this">1). ... – бу маълумот тизимида жойлашган электрон маълумот, маълумотлар  банки, маълумотлар базаси</div></div><input type="hidden" id="s_id_1" value="1471"><input type="hidden" id="table_id_1" value="128">
+				<div class="alert alert-success javob" id="javob_1_1" onclick="belgila(&#39;1&#39;,&#39;1&#39;,&#39;2_2&#39;)">
+					<div class="reset-this">информацион ресурс</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_1_2" onclick="belgila(&#39;1&#39;,&#39;2&#39;,&#39;2_2&#39;)">
+					<div class="reset-this">ахборотлаштириш</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_1_3" onclick="belgila(&#39;1&#39;,&#39;3&#39;,&#39;2_2&#39;)">
+					<div class="reset-this">ахборот технологиялари</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_1_4" onclick="belgila(&#39;1&#39;,&#39;4&#39;,&#39;2_2&#39;)">
+					<div class="reset-this">ахборот тизими</div>
+				</div>
+		</div>
+		<div id="block_2" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">2). Қандай курслар асосида тнгловчилар маълум топшириқлар тупламини бажариши шарт деган тасдиқ ётади </div></div><input type="hidden" id="s_id_2" value="1496"><input type="hidden" id="table_id_2" value="128">
+				<div class="alert alert-success javob" id="javob_2_3" onclick="belgila(&#39;2&#39;,&#39;3&#39;,&#39;2_2&#39;)">
+					<div class="reset-this">xMOOC</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_2_1" onclick="belgila(&#39;2&#39;,&#39;1&#39;,&#39;2_2&#39;)">
+					<div class="reset-this"> task-based MOOC</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_2_4" onclick="belgila(&#39;2&#39;,&#39;4&#39;,&#39;2_2&#39;)">
+					<div class="reset-this"> cMOOC</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_2_2" onclick="belgila(&#39;2&#39;,&#39;2&#39;,&#39;2_2&#39;)">
+					<div class="reset-this">MOOC</div>
+				</div>
+		</div>
+		<div id="block_3" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">3). Геймификация - бу?</div></div><input type="hidden" id="s_id_3" value="1488"><input type="hidden" id="table_id_3" value="128">
+				<div class="alert alert-success javob" id="javob_3_4" onclick="belgila(&#39;3&#39;,&#39;4&#39;,&#39;2_2&#39;)">
+					<div class="reset-this">Ўқитиш технологияси</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_3_3" onclick="belgila(&#39;3&#39;,&#39;3&#39;,&#39;2_2&#39;)">
+					<div class="reset-this">Фойдаланувчи график интерфейси</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_3_1" onclick="belgila(&#39;3&#39;,&#39;1&#39;,&#39;2_2&#39;)">
+					<div class="reset-this">Фойдаланувчилар эътиборини тортиш ва муаммоларни еча олиш учун ўйинсиз контекстда ўйинли фикрлаш ва ўйин механикасини қўллаш</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_3_2" onclick="belgila(&#39;3&#39;,&#39;2&#39;,&#39;2_2&#39;)">
+					<div class="reset-this">Таълимни бошқариш тизими ва бу глобал термин бўлиб, компьютер тизимини билдиради  </div>
+				</div>
+		</div>
+		<div id="block_4" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">4). Udacity лойиҳаси мақсади? 
+
+</div></div><input type="hidden" id="s_id_4" value="1480"><input type="hidden" id="table_id_4" value="128">
+				<div class="alert alert-success javob" id="javob_4_1" onclick="belgila(&#39;4&#39;,&#39;1&#39;,&#39;2_2&#39;)">
+					<div class="reset-this">таълимни демократлаштириш</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_4_3" onclick="belgila(&#39;4&#39;,&#39;3&#39;,&#39;2_2&#39;)">
+					<div class="reset-this">таълим тенглиги</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_4_2" onclick="belgila(&#39;4&#39;,&#39;2&#39;,&#39;2_2&#39;)">
+					<div class="reset-this">таълимни виртуаллаштириш</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_4_4" onclick="belgila(&#39;4&#39;,&#39;4&#39;,&#39;2_2&#39;)">
+					<div class="reset-this">таълимни эгаллаш мумкинлиги</div>
+				</div>
+		</div>
+		<div id="block_5" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">5). ... талим жараёнида қўлланиладиган дастурий воситалар</div></div><input type="hidden" id="s_id_5" value="1473"><input type="hidden" id="table_id_5" value="128">
+				<div class="alert alert-success javob" id="javob_5_2" onclick="belgila(&#39;5&#39;,&#39;2&#39;,&#39;2_2&#39;)">
+					<div class="reset-this">система дастурий таъминоти</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_5_4" onclick="belgila(&#39;5&#39;,&#39;4&#39;,&#39;2_2&#39;)">
+					<div class="reset-this">амалий дастурий таъминот</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_5_1" onclick="belgila(&#39;5&#39;,&#39;1&#39;,&#39;2_2&#39;)">
+					<div class="reset-this">педагогик дастурий воситалар</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_5_3" onclick="belgila(&#39;5&#39;,&#39;3&#39;,&#39;2_2&#39;)">
+					<div class="reset-this">дастурий таъминотлар </div>
+				</div>
+		</div>
+		<div id="block_6" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">6). Қайси ахборот-кутубхона муассасаси  Ўзбекистон Республикасида миллий ва жахон маданияти, фани ва таълимни ривожлантириш учун ахборот-кутубхона фаолиятини амалга оширади?</div></div><input type="hidden" id="s_id_6" value="1637"><input type="hidden" id="table_id_6" value="128">
+				<div class="alert alert-success javob" id="javob_6_1" onclick="belgila(&#39;6&#39;,&#39;1&#39;,&#39;3_2&#39;)">
+					<div class="reset-this">Ўзбекистон Миллий кутубхонаси</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_6_3" onclick="belgila(&#39;6&#39;,&#39;3&#39;,&#39;3_2&#39;)">
+					<div class="reset-this">ЎзР ФА Фундаментал кутубхонаси</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_6_2" onclick="belgila(&#39;6&#39;,&#39;2&#39;,&#39;3_2&#39;)">
+					<div class="reset-this">Республика илмий педагогика кутубхонаси</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_6_4" onclick="belgila(&#39;6&#39;,&#39;4&#39;,&#39;3_2&#39;)">
+					<div class="reset-this">Республика болалар кутубхонаси</div>
+				</div>
+		</div>
+		<div id="block_7" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">7). Қайси ахборот-кутубхона муассасаси олий таълим АРМлари учун методик марказ хисобланади?</div></div><input type="hidden" id="s_id_7" value="1639"><input type="hidden" id="table_id_7" value="128">
+				<div class="alert alert-success javob" id="javob_7_3" onclick="belgila(&#39;7&#39;,&#39;3&#39;,&#39;3_2&#39;)">
+					<div class="reset-this">Республика илмий педагогика кутубхонаси</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_7_1" onclick="belgila(&#39;7&#39;,&#39;1&#39;,&#39;3_2&#39;)">
+					<div class="reset-this">Мирзо Улуғбек номли Миллий университет Илмий кутубхона</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_7_2" onclick="belgila(&#39;7&#39;,&#39;2&#39;,&#39;3_2&#39;)">
+					<div class="reset-this">Ўзбекистон Миллий кутубхонаси</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_7_4" onclick="belgila(&#39;7&#39;,&#39;4&#39;,&#39;3_2&#39;)">
+					<div class="reset-this">Ўзбекистон ФА Фундаментал кутубхонаси</div>
+				</div>
+		</div>
+		<div id="block_8" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">8). Ахборот-кутубхона муассасаларининг моддий ва маънавий ишлаб чиқаришни ва қайта ишлаб чиқишдаги  фаолияти бу...</div></div><input type="hidden" id="s_id_8" value="1622"><input type="hidden" id="table_id_8" value="128">
+				<div class="alert alert-success javob" id="javob_8_2" onclick="belgila(&#39;8&#39;,&#39;2&#39;,&#39;3_2&#39;)">
+					<div class="reset-this">Маданий функциясидир</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_8_3" onclick="belgila(&#39;8&#39;,&#39;3&#39;,&#39;3_2&#39;)">
+					<div class="reset-this">Таълим функциясидир</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_8_4" onclick="belgila(&#39;8&#39;,&#39;4&#39;,&#39;3_2&#39;)">
+					<div class="reset-this">Маданий-маърифий функциясидир</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_8_1" onclick="belgila(&#39;8&#39;,&#39;1&#39;,&#39;3_2&#39;)">
+					<div class="reset-this">Ахборот функциясидир</div>
+				</div>
+		</div>
+		<div id="block_9" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">9). “Республика аҳолисини ахборот-кутубхона билан таъминлашни ташкил этиш тўғрисида”ги №ПҚ-381 қарор қабул қилинган санани кўрсатинг?</div></div><input type="hidden" id="s_id_9" value="1616"><input type="hidden" id="table_id_9" value="128">
+				<div class="alert alert-success javob" id="javob_9_2" onclick="belgila(&#39;9&#39;,&#39;2&#39;,&#39;3_2&#39;)">
+					<div class="reset-this">2007 йил 20 март</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_9_3" onclick="belgila(&#39;9&#39;,&#39;3&#39;,&#39;3_2&#39;)">
+					<div class="reset-this">2008йил 20 апрел</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_9_4" onclick="belgila(&#39;9&#39;,&#39;4&#39;,&#39;3_2&#39;)">
+					<div class="reset-this"> 2009 йил 20 ноябр</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_9_1" onclick="belgila(&#39;9&#39;,&#39;1&#39;,&#39;3_2&#39;)">
+					<div class="reset-this">2006 йил 20 июн</div>
+				</div>
+		</div>
+		<div id="block_10" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">10). Ахборот-кутубхона муассасалари ишлаб чиқариш тузилмасини тузиш аввало қайси нарсани аниқлаб олишдан бошланади?</div></div><input type="hidden" id="s_id_10" value="1619"><input type="hidden" id="table_id_10" value="128">
+				<div class="alert alert-success javob" id="javob_10_1" onclick="belgila(&#39;10&#39;,&#39;1&#39;,&#39;3_2&#39;)">
+					<div class="reset-this">Иш жойини</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_10_4" onclick="belgila(&#39;10&#39;,&#39;4&#39;,&#39;3_2&#39;)">
+					<div class="reset-this">Фаолият кўламини аниқлаш</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_10_2" onclick="belgila(&#39;10&#39;,&#39;2&#39;,&#39;3_2&#39;)">
+					<div class="reset-this">Кутубхона типини</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_10_3" onclick="belgila(&#39;10&#39;,&#39;3&#39;,&#39;3_2&#39;)">
+					<div class="reset-this">Турли хизматларни аниқлаб олиш</div>
+				</div>
+		</div>
+		<div id="block_11" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">11). Менеджмент -ташкилот олдига қўйилган мақсадларга қандай эришади?</div></div><input type="hidden" id="s_id_11" value="1862"><input type="hidden" id="table_id_11" value="128">
+				<div class="alert alert-success javob" id="javob_11_2" onclick="belgila(&#39;11&#39;,&#39;2&#39;,&#39;5_2&#39;)">
+					<div class="reset-this">Одамларни мехнатини ва қобилиятларини қўллаган ҳолда эришади.</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_11_3" onclick="belgila(&#39;11&#39;,&#39;3&#39;,&#39;5_2&#39;)">
+					<div class="reset-this">Одамларни мехнатини, қобилиятларини ва интелектини қўллаган ҳолда.</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_11_1" onclick="belgila(&#39;11&#39;,&#39;1&#39;,&#39;5_2&#39;)">
+					<div class="reset-this">Одамларни меҳнатини, қобилиятларини, интеллектини, ҳаракат мотивларини қўллаган ҳолда эришади.</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_11_4" onclick="belgila(&#39;11&#39;,&#39;4&#39;,&#39;5_2&#39;)">
+					<div class="reset-this">Одамларни мехнатини ва интеллектини қўллаган ҳолда.</div>
+				</div>
+		</div>
+		<div id="block_12" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">12). Тўғри оқим принципини биласизми?.</div></div><input type="hidden" id="s_id_12" value="1870"><input type="hidden" id="table_id_12" value="128">
+				<div class="alert alert-success javob" id="javob_12_2" onclick="belgila(&#39;12&#39;,&#39;2&#39;,&#39;5_2&#39;)">
+					<div class="reset-this">Китоблар бир ходимнинг қўлида бир марта бўлиши ва унга қайтиб келмаслиги.</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_12_3" onclick="belgila(&#39;12&#39;,&#39;3&#39;,&#39;5_2&#39;)">
+					<div class="reset-this">Жараёнларни нотўғри алмашинишини олдини олиш.</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_12_4" onclick="belgila(&#39;12&#39;,&#39;4&#39;,&#39;5_2&#39;)">
+					<div class="reset-this">Ижро вақтини чўзиб юбориш ва ортиқча куч сарф қилишни олдини олиш.</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_12_1" onclick="belgila(&#39;12&#39;,&#39;1&#39;,&#39;5_2&#39;)">
+					<div class="reset-this">Жараён ва китоб операциялари, карточкалар, библиографик маълумотлар, китобхон сўровларини тўғри йўлини юзага келтиришни англатади.</div>
+				</div>
+		</div>
+		<div id="block_13" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">13). Ташкилот нима?</div></div><input type="hidden" id="s_id_13" value="1869"><input type="hidden" id="table_id_13" value="128">
+				<div class="alert alert-success javob" id="javob_13_3" onclick="belgila(&#39;13&#39;,&#39;3&#39;,&#39;5_2&#39;)">
+					<div class="reset-this">Умумий мақсадни кўзлаб ҳаракат қилувчи кишиларни бирлашувидир.</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_13_4" onclick="belgila(&#39;13&#39;,&#39;4&#39;,&#39;5_2&#39;)">
+					<div class="reset-this">Ахборот технологияларининг тизимлашган бирлашувидир.</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_13_2" onclick="belgila(&#39;13&#39;,&#39;2&#39;,&#39;5_2&#39;)">
+					<div class="reset-this">Кишилар ҳаракатини тизимлашган, онгли равишдаги бирлашувидир.</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_13_1" onclick="belgila(&#39;13&#39;,&#39;1&#39;,&#39;5_2&#39;)">
+					<div class="reset-this">Бир умумий мақсадни кўзлаб ҳаракат қилувчи,  кишилар ҳаракатини тизимлашган, онгли равишдаги бирлашуви.</div>
+				</div>
+		</div>
+		<div id="block_14" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">14). Режалаштириш нима?</div></div><input type="hidden" id="s_id_14" value="1866"><input type="hidden" id="table_id_14" value="128">
+				<div class="alert alert-success javob" id="javob_14_4" onclick="belgila(&#39;14&#39;,&#39;4&#39;,&#39;5_2&#39;)">
+					<div class="reset-this">Ҳаракатларни ягона йўналишга бирлаштириш. </div>
+				</div>
+				<div class="alert alert-success javob" id="javob_14_2" onclick="belgila(&#39;14&#39;,&#39;2&#39;,&#39;5_2&#39;)">
+					<div class="reset-this">Умумий мақсадларига эришиш йўлидаги ҳаракат бирлигини таъминлаш воситаларидан биридир.</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_14_3" onclick="belgila(&#39;14&#39;,&#39;3&#39;,&#39;5_2&#39;)">
+					<div class="reset-this">Йил давомида қилиниши зарур бўлган ишларни аниқлаш.</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_14_1" onclick="belgila(&#39;14&#39;,&#39;1&#39;,&#39;5_2&#39;)">
+					<div class="reset-this">Раҳбарият ҳаракатларининг ягона йўналишини, ташкилот аъзоларининг умумий мақсадларига эришиш йўлидаги ҳаракат бирлигини таъминлаш воситаларидан биридир.</div>
+				</div>
+		</div>
+		<div id="block_15" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">15). Статистик ишлар қайси босқичдан бошланади?</div></div><input type="hidden" id="s_id_15" value="1867"><input type="hidden" id="table_id_15" value="128">
+				<div class="alert alert-success javob" id="javob_15_4" onclick="belgila(&#39;15&#39;,&#39;4&#39;,&#39;5_2&#39;)">
+					<div class="reset-this">Гурухлаш. </div>
+				</div>
+				<div class="alert alert-success javob" id="javob_15_3" onclick="belgila(&#39;15&#39;,&#39;3&#39;,&#39;5_2&#39;)">
+					<div class="reset-this">Кузатиш. </div>
+				</div>
+				<div class="alert alert-success javob" id="javob_15_1" onclick="belgila(&#39;15&#39;,&#39;1&#39;,&#39;5_2&#39;)">
+					<div class="reset-this">Саралаш. </div>
+				</div>
+				<div class="alert alert-success javob" id="javob_15_2" onclick="belgila(&#39;15&#39;,&#39;2&#39;,&#39;5_2&#39;)">
+					<div class="reset-this">Маълумот тўплаш.</div>
+				</div>
+		</div>
+		<div id="block_16" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">16). Истеъмол қилинадиган ва истеъмолчи учун маълум қийматга эга бўлган объект:</div></div><input type="hidden" id="s_id_16" value="3937"><input type="hidden" id="table_id_16" value="132">
+				<div class="alert alert-success javob" id="javob_16_4" onclick="belgila(&#39;16&#39;,&#39;4&#39;,&#39;6_3&#39;)">
+					<div class="reset-this">аппарат воситаси дейилади</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_16_1" onclick="belgila(&#39;16&#39;,&#39;1&#39;,&#39;6_3&#39;)">
+					<div class="reset-this">ресурс дейилади</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_16_3" onclick="belgila(&#39;16&#39;,&#39;3&#39;,&#39;6_3&#39;)">
+					<div class="reset-this">принцип дейилади</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_16_2" onclick="belgila(&#39;16&#39;,&#39;2&#39;,&#39;6_3&#39;)">
+					<div class="reset-this">дастур воситаси дейилади</div>
+				</div>
+		</div>
+		<div id="block_17" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">17). Клиент-сервер технологияси асосида ишловчи МББТ бир вақтда неча амалий дастур ишлай олади?</div></div><input type="hidden" id="s_id_17" value="3780"><input type="hidden" id="table_id_17" value="132">
+				<div class="alert alert-success javob" id="javob_17_2" onclick="belgila(&#39;17&#39;,&#39;2&#39;,&#39;6_1&#39;)">
+					<div class="reset-this">100 та</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_17_1" onclick="belgila(&#39;17&#39;,&#39;1&#39;,&#39;6_1&#39;)">
+					<div class="reset-this">3 та</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_17_4" onclick="belgila(&#39;17&#39;,&#39;4&#39;,&#39;6_1&#39;)">
+					<div class="reset-this">1 та</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_17_3" onclick="belgila(&#39;17&#39;,&#39;3&#39;,&#39;6_1&#39;)">
+					<div class="reset-this">Тармоқдагиларни барчаси</div>
+				</div>
+		</div>
+		<div id="block_18" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">18). Синфнинг барча элементларига мурожаатни ўрнатиш мумкинми?</div></div><input type="hidden" id="s_id_18" value="3887"><input type="hidden" id="table_id_18" value="132">
+				<div class="alert alert-success javob" id="javob_18_4" onclick="belgila(&#39;18&#39;,&#39;4&#39;,&#39;6_2&#39;)">
+					<div class="reset-this">Ҳа, синфдаги элементларнинг 33% га</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_18_1" onclick="belgila(&#39;18&#39;,&#39;1&#39;,&#39;6_2&#39;)">
+					<div class="reset-this">Ҳа</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_18_3" onclick="belgila(&#39;18&#39;,&#39;3&#39;,&#39;6_2&#39;)">
+					<div class="reset-this">Ҳа, синфдаги элементларнинг 50% га</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_18_2" onclick="belgila(&#39;18&#39;,&#39;2&#39;,&#39;6_2&#39;)">
+					<div class="reset-this">Йўқ</div>
+				</div>
+		</div>
+		<div id="block_19" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">19). ОТ бошқаруви остида жараёнлар сонини ўзгартирмайдиган амаллар:</div></div><input type="hidden" id="s_id_19" value="3973"><input type="hidden" id="table_id_19" value="132">
+				<div class="alert alert-success javob" id="javob_19_1" onclick="belgila(&#39;19&#39;,&#39;1&#39;,&#39;6_3&#39;)">
+					<div class="reset-this">кўп марталик амаллар</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_19_3" onclick="belgila(&#39;19&#39;,&#39;3&#39;,&#39;6_3&#39;)">
+					<div class="reset-this">жараён приоритетини ўзгартирувчи амаллар</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_19_4" onclick="belgila(&#39;19&#39;,&#39;4&#39;,&#39;6_3&#39;)">
+					<div class="reset-this">тайёр ҳолатга ўтказувчи амаллар</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_19_2" onclick="belgila(&#39;19&#39;,&#39;2&#39;,&#39;6_3&#39;)">
+					<div class="reset-this">бир марталик амаллар</div>
+				</div>
+		</div>
+		<div id="block_20" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">20). Тармоқ операцион тизимининг қайси қисми маълумотларни адреслаш, буферлаш, ва узатилишидаги хавфсизликни таъминлайди?</div></div><input type="hidden" id="s_id_20" value="3983"><input type="hidden" id="table_id_20" value="132">
+				<div class="alert alert-success javob" id="javob_20_1" onclick="belgila(&#39;20&#39;,&#39;1&#39;,&#39;6_3&#39;)">
+					<div class="reset-this">Коммуникацион воситалар</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_20_3" onclick="belgila(&#39;20&#39;,&#39;3&#39;,&#39;6_3&#39;)">
+					<div class="reset-this">Сервер қисми</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_20_4" onclick="belgila(&#39;20&#39;,&#39;4&#39;,&#39;6_3&#39;)">
+					<div class="reset-this">Компьютерни локал ресурсларини бошқарувчи восита</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_20_2" onclick="belgila(&#39;20&#39;,&#39;2&#39;,&#39;6_3&#39;)">
+					<div class="reset-this">Клиент қисми</div>
+				</div>
+		</div>
+		<div id="block_21" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">21). Engines технологияси асосида ишловчи МББТ бир вақтда неча амалий дастур ишлай олади?</div></div><input type="hidden" id="s_id_21" value="3728"><input type="hidden" id="table_id_21" value="132">
+				<div class="alert alert-success javob" id="javob_21_3" onclick="belgila(&#39;21&#39;,&#39;3&#39;,&#39;6_1&#39;)">
+					<div class="reset-this">Тармоқдагиларни барчаси</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_21_1" onclick="belgila(&#39;21&#39;,&#39;1&#39;,&#39;6_1&#39;)">
+					<div class="reset-this">3 та</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_21_4" onclick="belgila(&#39;21&#39;,&#39;4&#39;,&#39;6_1&#39;)">
+					<div class="reset-this">1 та</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_21_2" onclick="belgila(&#39;21&#39;,&#39;2&#39;,&#39;6_1&#39;)">
+					<div class="reset-this">100 та</div>
+				</div>
+		</div>
+		<div id="block_22" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">22). REVOKE оператори нима вазифани бажаради?</div></div><input type="hidden" id="s_id_22" value="3759"><input type="hidden" id="table_id_22" value="132">
+				<div class="alert alert-success javob" id="javob_22_3" onclick="belgila(&#39;22&#39;,&#39;3&#39;,&#39;6_1&#39;)">
+					<div class="reset-this">DELETE таъқиқланган</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_22_4" onclick="belgila(&#39;22&#39;,&#39;4&#39;,&#39;6_1&#39;)">
+					<div class="reset-this">Амал(лар) таъқиқланган</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_22_1" onclick="belgila(&#39;22&#39;,&#39;1&#39;,&#39;6_1&#39;)">
+					<div class="reset-this">INSERT таъқиқланган</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_22_2" onclick="belgila(&#39;22&#39;,&#39;2&#39;,&#39;6_1&#39;)">
+					<div class="reset-this">UPDATE таъқиқланган</div>
+				</div>
+		</div>
+		<div id="block_23" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">23). Операцион тизим-</div></div><input type="hidden" id="s_id_23" value="3961"><input type="hidden" id="table_id_23" value="132">
+				<div class="alert alert-success javob" id="javob_23_1" onclick="belgila(&#39;23&#39;,&#39;1&#39;,&#39;6_3&#39;)">
+					<div class="reset-this">фойдаланувчилар учун интерфейсни ташкил этади; бажарилувчи дастурлар учун интерфейсни ташкил этади</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_23_3" onclick="belgila(&#39;23&#39;,&#39;3&#39;,&#39;6_3&#39;)">
+					<div class="reset-this">дастурлар учун интерфейсни ташкил этади</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_23_2" onclick="belgila(&#39;23&#39;,&#39;2&#39;,&#39;6_3&#39;)">
+					<div class="reset-this">хизматчи дастурлар учун интерфейсни ташкил этади</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_23_4" onclick="belgila(&#39;23&#39;,&#39;4&#39;,&#39;6_3&#39;)">
+					<div class="reset-this">файллар учун интерфейсни ташкил этади</div>
+				</div>
+		</div>
+		<div id="block_24" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">24). Қуйидаги таърифлардан қай бири бир хил мавқели тармоқга мос дейилади:</div></div><input type="hidden" id="s_id_24" value="3948"><input type="hidden" id="table_id_24" value="132">
+				<div class="alert alert-success javob" id="javob_24_3" onclick="belgila(&#39;24&#39;,&#39;3&#39;,&#39;6_3&#39;)">
+					<div class="reset-this">Операцион тизимнинг хоссалари яққол кўрсатилган</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_24_2" onclick="belgila(&#39;24&#39;,&#39;2&#39;,&#39;6_3&#39;)">
+					<div class="reset-this">Барча ишчи станцияларда бир хил операцион тизим ўрнатилган</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_24_1" onclick="belgila(&#39;24&#39;,&#39;1&#39;,&#39;6_3&#39;)">
+					<div class="reset-this">Барча компьютерлар тармоқ ресурсларидан тенг хуқуқли фойдаланишади</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_24_4" onclick="belgila(&#39;24&#39;,&#39;4&#39;,&#39;6_3&#39;)">
+					<div class="reset-this">Кичик фойдаланувчи гуруҳлар учун қўлланилади</div>
+				</div>
+		</div>
+		<div id="block_25" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">25). IN операторининг вазифаси нимадан иборат?</div></div><input type="hidden" id="s_id_25" value="3734"><input type="hidden" id="table_id_25" value="132">
+				<div class="alert alert-success javob" id="javob_25_1" onclick="belgila(&#39;25&#39;,&#39;1&#39;,&#39;6_1&#39;)">
+					<div class="reset-this">Иккита ифодани солиштириш</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_25_2" onclick="belgila(&#39;25&#39;,&#39;2&#39;,&#39;6_1&#39;)">
+					<div class="reset-this">Ифодани тўпламга тегишлилигини текширади</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_25_4" onclick="belgila(&#39;25&#39;,&#39;4&#39;,&#39;6_1&#39;)">
+					<div class="reset-this">Ифодани тўплам билан солиштириш</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_25_3" onclick="belgila(&#39;25&#39;,&#39;3&#39;,&#39;6_1&#39;)">
+					<div class="reset-this">Ифодани тўпламга боғлаш</div>
+				</div>
+		</div>
+		<div id="block_26" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">26). Фаол тадбиркорлик бу...</div></div><input type="hidden" id="s_id_26" value="436"><input type="hidden" id="table_id_26" value="137">
+				<div class="alert alert-success javob" id="javob_26_1" onclick="belgila(&#39;26&#39;,&#39;1&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">бизнес фаолиятини инновацион ёндашувлар, илғор технология ва бошқарув усуллари асосида ташкил этиш.</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_26_4" onclick="belgila(&#39;26&#39;,&#39;4&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">бизнес фаолиятини инновацион, яъни замонавий ёндашувлар, илғор технология ва бошқарув усуллари асосида ташкил этадиган иқтисодий йўналишдир.</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_26_3" onclick="belgila(&#39;26&#39;,&#39;3&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">тадбиркорлик фаолиятини инновацион, ёндашувлар, илғор технология ва бошқарув усуллари асосида ташкил этиш.</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_26_2" onclick="belgila(&#39;26&#39;,&#39;2&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">бизнес ва тадбиркорлик фаолиятини замонавий ёндашувлар, илғор технология ва усуллар асосида ташкил этадиган иқтисодий йўналишдир.</div>
+				</div>
+		</div>
+		<div id="block_27" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">27). Ўзбекистон Республикаси Президенти Ш.Мирзиёев томонидан Самарқанд шаҳрида Марказий Осиё ёшлари форумини ўтказиш ташаббуси илк бор қаерда эълон қилинган?</div></div><input type="hidden" id="s_id_27" value="453"><input type="hidden" id="table_id_27" value="137">
+				<div class="alert alert-success javob" id="javob_27_2" onclick="belgila(&#39;27&#39;,&#39;2&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">Ўзбекистон Республикаси Конституцияси қабул қилинганининг 25 йиллигига бағишланган тантанали маросимдаги маърузасида</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_27_1" onclick="belgila(&#39;27&#39;,&#39;1&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">Ўзбекистон Республикаси Ёшлар Иттифоқини ташкил этиш бўйича ўтказилган йиғилишдаги маърузасида</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_27_3" onclick="belgila(&#39;27&#39;,&#39;3&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">Ўзбекистон Республикаси Мустақиллигининг 26 йиллигига бағишланган тантанали маросимдаги маърузасида</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_27_4" onclick="belgila(&#39;27&#39;,&#39;4&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">Олий Мажлисга Мурожаатномасида</div>
+				</div>
+		</div>
+		<div id="block_28" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">28). Ўзбекистон Республикаси Президенти Ш.Мирзиёев томонидан чет элларда яшаётган ва ишлаётган ватандошларимиз билан ўзаро ҳамкорлик соҳасида давлат сиёсати концепциясини ишлаб чиқиш ташаббуси илк бор қаерда эълон қилинган?</div></div><input type="hidden" id="s_id_28" value="454"><input type="hidden" id="table_id_28" value="137">
+				<div class="alert alert-success javob" id="javob_28_1" onclick="belgila(&#39;28&#39;,&#39;1&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">Олий Мажлисга Мурожаатномасида</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_28_2" onclick="belgila(&#39;28&#39;,&#39;2&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">Ўзбекистон Республикаси Конституцияси қабул қилинганининг 25 йиллигига бағишланган тантанали маросимдаги маърузасида</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_28_3" onclick="belgila(&#39;28&#39;,&#39;3&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">Ўзбекистон Республикаси Мустақиллигининг 26 йиллигига бағишланган тантанали маросимдаги маърузасида</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_28_4" onclick="belgila(&#39;28&#39;,&#39;4&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">Ўзбекистон Республикаси Ёшлар Иттифоқини ташкил этиш бўйича ўтказилган йиғилишдаги маърузасида</div>
+				</div>
+		</div>
+		<div id="block_29" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">29). 2017 — 2021 йилларда Ўзбекистон Республикасини ривожлантиришнинг бўйича Ҳаракатлар стратегиясининг биринчи йўналиши қандай номланади?</div></div><input type="hidden" id="s_id_29" value="377"><input type="hidden" id="table_id_29" value="137">
+				<div class="alert alert-success javob" id="javob_29_3" onclick="belgila(&#39;29&#39;,&#39;3&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">иқтисодиётни янада ривожлантириш ва либераллаштириш</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_29_2" onclick="belgila(&#39;29&#39;,&#39;2&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">қонун устуворлигини таъминлаш ва суд-ҳуқуқ тизимини янада ислоҳ қилиш</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_29_1" onclick="belgila(&#39;29&#39;,&#39;1&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">давлат ва жамият қурилишини такомиллаштириш</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_29_4" onclick="belgila(&#39;29&#39;,&#39;4&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">ижтимоий соҳани ривожлантириш</div>
+				</div>
+		</div>
+		<div id="block_30" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">30). Ўзбекистон Республикаси Президенти Ш.Мирзиёев томонидан давлат ва жамият бошқарувида жамоатчилик назоратини амалга оширишнинг таъсирчан ва амалий механизмларини жорий этиш мақсадида “Жамоатчилик назорати тўғрисида”ги қонунни қабул қилиш ташаббуси илк бор қаерда эълон қилинган?</div></div><input type="hidden" id="s_id_30" value="452"><input type="hidden" id="table_id_30" value="137">
+				<div class="alert alert-success javob" id="javob_30_3" onclick="belgila(&#39;30&#39;,&#39;3&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">Олий Мажлисга Мурожаатномасида</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_30_4" onclick="belgila(&#39;30&#39;,&#39;4&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">Ўзбекистон Республикаси Ёшлар Иттифоқини ташкил этиш бўйича ўтказилган йиғилишдаги маърузасида</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_30_2" onclick="belgila(&#39;30&#39;,&#39;2&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">Ўзбекистон Республикаси Конституцияси қабул қилинганининг 25 йиллигига бағишланган тантанали маросимдаги маърузасида</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_30_1" onclick="belgila(&#39;30&#39;,&#39;1&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">Ўзбекистон Республикаси Мустақиллигининг 26 йиллигига бағишланган тантанали маросимдаги маърузасида</div>
+				</div>
+		</div>
+		<div id="block_31" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">31). «Камолот» ёшлар ижтимоий харакати қачон Ўзбекистон Ёшлар иттифоқига айлантирилди?</div></div><input type="hidden" id="s_id_31" value="401"><input type="hidden" id="table_id_31" value="137">
+				<div class="alert alert-success javob" id="javob_31_4" onclick="belgila(&#39;31&#39;,&#39;4&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">2017 йил 5 июнь</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_31_3" onclick="belgila(&#39;31&#39;,&#39;3&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">2017 йил 30 июль</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_31_2" onclick="belgila(&#39;31&#39;,&#39;2&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">2017 йил 30 июнь</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_31_1" onclick="belgila(&#39;31&#39;,&#39;1&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">2017 йил 5 июль</div>
+				</div>
+		</div>
+		<div id="block_32" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">32). Ўзбекистон Республикаси Президентининг фармони билан жамият ва давлат ҳаётида фаоллик ва ташаббускорлик кўрсатган, ўзининг самарали меҳнати билан оиланинг шаклланиши ва фаровонлиги мустаҳкамланишига, оналик ва болалик муҳофазасига муносиб ҳисса қўшган хотин-қизларга қандай мукофот таъсис этилди?</div></div><input type="hidden" id="s_id_32" value="443"><input type="hidden" id="table_id_32" value="137">
+				<div class="alert alert-success javob" id="javob_32_3" onclick="belgila(&#39;32&#39;,&#39;3&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">Зулфия</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_32_2" onclick="belgila(&#39;32&#39;,&#39;2&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">Муқаддас аёл</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_32_1" onclick="belgila(&#39;32&#39;,&#39;1&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">Мўътабар аёл</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_32_4" onclick="belgila(&#39;32&#39;,&#39;4&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">Энг оилапарвар аёл</div>
+				</div>
+		</div>
+		<div id="block_33" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">33). Ўзбекистонда таълим ва фан соҳасини ривожлантириш  Ҳаракатлар стратегиясининг қайси йўналишида қайд этилган?</div></div><input type="hidden" id="s_id_33" value="418"><input type="hidden" id="table_id_33" value="137">
+				<div class="alert alert-success javob" id="javob_33_2" onclick="belgila(&#39;33&#39;,&#39;2&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">ижтимоий соҳани ривожлантириш</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_33_4" onclick="belgila(&#39;33&#39;,&#39;4&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">иқтисодиётни янада ривожлантириш ва либераллаштириш</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_33_1" onclick="belgila(&#39;33&#39;,&#39;1&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">давлат ва жамият қурилишини такомиллаштириш</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_33_3" onclick="belgila(&#39;33&#39;,&#39;3&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">қонун устуворлигини таъминлаш ва суд-ҳуқуқ тизимини янада ислоҳ қилиш</div>
+				</div>
+		</div>
+		<div id="block_34" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">34). Ўзбекистон Республикаси Президенти Ш.Мирзиёев томонидан Ўзбекистон ёшлари халқаро ассоциациясини тузиш ташаббуси илк бор қаерда эълон қилинган?</div></div><input type="hidden" id="s_id_34" value="451"><input type="hidden" id="table_id_34" value="137">
+				<div class="alert alert-success javob" id="javob_34_1" onclick="belgila(&#39;34&#39;,&#39;1&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">Ўзбекистон Республикаси Мустақиллигининг 26 йиллигига бағишланган тантанали маросимдаги маърузасида</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_34_2" onclick="belgila(&#39;34&#39;,&#39;2&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">Ўзбекистон Республикаси Конституцияси қабул қилинганининг 25 йиллигига бағишланган тантанали маросимдаги маърузасида</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_34_4" onclick="belgila(&#39;34&#39;,&#39;4&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">Ўзбекистон Республикаси Ёшлар Иттифоқини ташкил этиш бўйича ўтказилган йиғилишдаги маърузасида</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_34_3" onclick="belgila(&#39;34&#39;,&#39;3&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">Олий Мажлисга Мурожаатномасида</div>
+				</div>
+		</div>
+		<div id="block_35" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">35). Ижтимоий адолат нима?</div></div><input type="hidden" id="s_id_35" value="455"><input type="hidden" id="table_id_35" value="137">
+				<div class="alert alert-success javob" id="javob_35_4" onclick="belgila(&#39;35&#39;,&#39;4&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">кафолатланган меҳнат фаолияти эркинлиги, мансаб лавозимлари бўйича кўтарилиб боришдаги имкониятлар тенглигидир</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_35_2" onclick="belgila(&#39;35&#39;,&#39;2&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">таълим, тиббиёт ва бошқа соҳалардаги имкониятлар тенглигидир</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_35_3" onclick="belgila(&#39;35&#39;,&#39;3&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">барча жавоблар тўғри</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_35_1" onclick="belgila(&#39;35&#39;,&#39;1&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">сиёсий қарашлари, жинси, миллати, тили ва диний эътиқодидан қатъи назар, қонун олдида барча фуқароларнинг тенглигини таъминлашдир</div>
+				</div>
+		</div>
+		<div id="block_36" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">36). Ўзбекистон Республикаси Президенти Шавкат Мирзиёевнинг Олий Мажлисга Мурожаатномасида “Халқ давлат идораларига эмас, балки давлат идоралари халқимизга хизмат қилиши керак” деган ғоя бу борада фаолиятимиз .............. айланмоқда. Жумлани тўлдириш учун қайси сўзни қўйиш лозим?</div></div><input type="hidden" id="s_id_36" value="447"><input type="hidden" id="table_id_36" value="137">
+				<div class="alert alert-success javob" id="javob_36_2" onclick="belgila(&#39;36&#39;,&#39;2&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">йўналишига</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_36_4" onclick="belgila(&#39;36&#39;,&#39;4&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">мезонига</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_36_3" onclick="belgila(&#39;36&#39;,&#39;3&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">мақсадига</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_36_1" onclick="belgila(&#39;36&#39;,&#39;1&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">асосига</div>
+				</div>
+		</div>
+		<div id="block_37" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">37). Ўзбекистон Республикасининг “Коррупцияга қарши курашиш тўғрисида”ги Қонунининг нечанчи моддасида  Таълим муассасаларида коррупцияга қарши курашиш соҳасидаги ҳуқуқий таълим ва тарбия масалари хусусида сўз юритилган?</div></div><input type="hidden" id="s_id_37" value="445"><input type="hidden" id="table_id_37" value="137">
+				<div class="alert alert-success javob" id="javob_37_4" onclick="belgila(&#39;37&#39;,&#39;4&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">11 модда</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_37_2" onclick="belgila(&#39;37&#39;,&#39;2&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">8 модда</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_37_1" onclick="belgila(&#39;37&#39;,&#39;1&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">18 модда</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_37_3" onclick="belgila(&#39;37&#39;,&#39;3&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">16 модда</div>
+				</div>
+		</div>
+		<div id="block_38" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">38). 2017 йилда маданий-гуманитар соҳаларни ривожлантириш бўйича қилинган ишлар ҳақида гапирганда, аввало, маданият, адабиёт ва санъат, оммавий ахборот воситалари соҳасига&nbsp;тааллуқли нечта ҳужжат қабул қилинди?</div></div><input type="hidden" id="s_id_38" value="432"><input type="hidden" id="table_id_38" value="137">
+				<div class="alert alert-success javob" id="javob_38_3" onclick="belgila(&#39;38&#39;,&#39;3&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">16 та</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_38_1" onclick="belgila(&#39;38&#39;,&#39;1&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">80 дан зиёд</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_38_2" onclick="belgila(&#39;38&#39;,&#39;2&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">72 та</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_38_4" onclick="belgila(&#39;38&#39;,&#39;4&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">12 та</div>
+				</div>
+		</div>
+		<div id="block_39" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">39). Президентимиз Ш.М.Мирзиёевнинг “Олий таълим тизимини янада ривожлантириш чора-тадбирлари тўғрисида ”ги қарори қачон қабул қилинди?</div></div><input type="hidden" id="s_id_39" value="420"><input type="hidden" id="table_id_39" value="137">
+				<div class="alert alert-success javob" id="javob_39_4" onclick="belgila(&#39;39&#39;,&#39;4&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">2017 йил 20 апрелда</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_39_2" onclick="belgila(&#39;39&#39;,&#39;2&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">2017 йил 10 апрелда</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_39_1" onclick="belgila(&#39;39&#39;,&#39;1&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">2017 йил 15 апрелда</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_39_3" onclick="belgila(&#39;39&#39;,&#39;3&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">2017 йил 20 мартда</div>
+				</div>
+		</div>
+		<div id="block_40" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">40). Президентимиз Ш.Мирзиёев қайси нутқида “Маърифат ва диний бағрикенглик” деб номланган махсус резолюцияни қабул қилиш таклифи билан чиқди?</div></div><input type="hidden" id="s_id_40" value="412"><input type="hidden" id="table_id_40" value="137">
+				<div class="alert alert-success javob" id="javob_40_4" onclick="belgila(&#39;40&#39;,&#39;4&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">Ўзбекистон Республикаси Конституцияси қабул қилинганининг 24 йиллигига бағишланган тантанали маросимда</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_40_1" onclick="belgila(&#39;40&#39;,&#39;1&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">БМТ Бош ассамблиясининг 70 сессиясида</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_40_3" onclick="belgila(&#39;40&#39;,&#39;3&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">БМТ Бош ассамблиясининг 72 сессиясида</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_40_2" onclick="belgila(&#39;40&#39;,&#39;2&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">Ислом ҳамкорлик ташкилоти Ташқи ишлар вазирлари кенгаши 43-сессияси</div>
+				</div>
+		</div>
+		<div id="block_41" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">41). Коррупцияга қарши курашиш тўғрисидаги Ўзбекистон Республикасининг Қонуни неча моддадан иборат?</div></div><input type="hidden" id="s_id_41" value="389"><input type="hidden" id="table_id_41" value="137">
+				<div class="alert alert-success javob" id="javob_41_4" onclick="belgila(&#39;41&#39;,&#39;4&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">34 модда</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_41_3" onclick="belgila(&#39;41&#39;,&#39;3&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">25 модда</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_41_1" onclick="belgila(&#39;41&#39;,&#39;1&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">37 модда</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_41_2" onclick="belgila(&#39;41&#39;,&#39;2&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">42 модда</div>
+				</div>
+		</div>
+		<div id="block_42" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">42). 2017 йилда мамлакатимизда нечта саноат зонаси фаолияти йўлга қўйилди?</div></div><input type="hidden" id="s_id_42" value="450"><input type="hidden" id="table_id_42" value="137">
+				<div class="alert alert-success javob" id="javob_42_3" onclick="belgila(&#39;42&#39;,&#39;3&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">44 та</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_42_2" onclick="belgila(&#39;42&#39;,&#39;2&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">18 та</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_42_1" onclick="belgila(&#39;42&#39;,&#39;1&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">16 та</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_42_4" onclick="belgila(&#39;42&#39;,&#39;4&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">45 та</div>
+				</div>
+		</div>
+		<div id="block_43" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">43). Мамлакатимизда бугунги кунда нечта диний таълим муассасаси фаолият олиб бормоқда?</div></div><input type="hidden" id="s_id_43" value="374"><input type="hidden" id="table_id_43" value="137">
+				<div class="alert alert-success javob" id="javob_43_4" onclick="belgila(&#39;43&#39;,&#39;4&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">13 та</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_43_2" onclick="belgila(&#39;43&#39;,&#39;2&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">11 та</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_43_1" onclick="belgila(&#39;43&#39;,&#39;1&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">10 та</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_43_3" onclick="belgila(&#39;43&#39;,&#39;3&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">12 та</div>
+				</div>
+		</div>
+		<div id="block_44" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">44). 2017 — 2021 йилларда Ўзбекистон Республикасини ривожлантиришнинг бўйича Ҳаракатлар стратегиясининг иккинчи йўналиши қандай номланади?</div></div><input type="hidden" id="s_id_44" value="378"><input type="hidden" id="table_id_44" value="137">
+				<div class="alert alert-success javob" id="javob_44_2" onclick="belgila(&#39;44&#39;,&#39;2&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">қонун устуворлигини таъминлаш ва суд-ҳуқуқ тизимини янада ислоҳ қилиш</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_44_4" onclick="belgila(&#39;44&#39;,&#39;4&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">ижтимоий соҳани ривожлантириш</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_44_3" onclick="belgila(&#39;44&#39;,&#39;3&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">иқтисодиётни янада ривожлантириш ва либераллаштириш</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_44_1" onclick="belgila(&#39;44&#39;,&#39;1&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">давлат ва жамият қурилишини такомиллаштириш</div>
+				</div>
+		</div>
+		<div id="block_45" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">45). Мамлакатимизда бугунги кунда амалга оширилаётган ислоҳотларнинг асосий мақсади –.</div></div><input type="hidden" id="s_id_45" value="409"><input type="hidden" id="table_id_45" value="137">
+				<div class="alert alert-success javob" id="javob_45_3" onclick="belgila(&#39;45&#39;,&#39;3&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">аҳоли учун муносиб ҳаёт даражаси ва сифатини таъминлаш</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_45_2" onclick="belgila(&#39;45&#39;,&#39;2&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">демократик ислоҳатларни янада ривожлантириш</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_45_4" onclick="belgila(&#39;45&#39;,&#39;4&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">халқ хокимяти органлири ролини янада ривожлантириш</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_45_1" onclick="belgila(&#39;45&#39;,&#39;1&#39;,&#39;1_1&#39;)">
+					<div class="reset-this">кучли фуқаролик жамиятини ташкил этиш</div>
+				</div>
+		</div>
+		<div id="block_46" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">46). Фан номзоди илмий даражасига ёки доцент илмий унвонига эга бўлган айнан бир шахс кафедра мудири лавозимига танловда кетма кет неча марта сайланиши мумкин ?</div></div><input type="hidden" id="s_id_46" value="26"><input type="hidden" id="table_id_46" value="137">
+				<div class="alert alert-success javob" id="javob_46_4" onclick="belgila(&#39;46&#39;,&#39;4&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">3 марта</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_46_1" onclick="belgila(&#39;46&#39;,&#39;1&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">2 марта</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_46_2" onclick="belgila(&#39;46&#39;,&#39;2&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">1 марта</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_46_3" onclick="belgila(&#39;46&#39;,&#39;3&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">2 марта фавқулодда холларда</div>
+				</div>
+		</div>
+		<div id="block_47" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">47). Ўқитиш мазмуни ва натижаларининг давлат таълим стандартлари талабларига мувофиқлигини текшириш бу...........................</div></div><input type="hidden" id="s_id_47" value="248"><input type="hidden" id="table_id_47" value="137">
+				<div class="alert alert-success javob" id="javob_47_4" onclick="belgila(&#39;47&#39;,&#39;4&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">олий таълим муассасаси аттестацияси</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_47_3" onclick="belgila(&#39;47&#39;,&#39;3&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">якуний давлат аттестацияси</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_47_2" onclick="belgila(&#39;47&#39;,&#39;2&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">таълим сифатини назорат қилиш</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_47_1" onclick="belgila(&#39;47&#39;,&#39;1&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">ўқитиш сифатини назорат қилиш</div>
+				</div>
+		</div>
+		<div id="block_48" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">48). Базавий таълим муассасасида ўқитиш малака оширишнинг қайси шаклига киради?</div></div><input type="hidden" id="s_id_48" value="266"><input type="hidden" id="table_id_48" value="137">
+				<div class="alert alert-success javob" id="javob_48_3" onclick="belgila(&#39;48&#39;,&#39;3&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">мустақил ўқиб билим орттириш</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_48_2" onclick="belgila(&#39;48&#39;,&#39;2&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">билвосита малака орттириш</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_48_1" onclick="belgila(&#39;48&#39;,&#39;1&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">таълим дастурларисиз ўқитиш</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_48_4" onclick="belgila(&#39;48&#39;,&#39;4&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">тўғридан-тўғри малака ошириш</div>
+				</div>
+		</div>
+		<div id="block_49" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">49). Битирувчилар ўқишни тамомлагандан сўнг қанча муддатда иш жойига етиб келишлари ва иш бошлашлари лозим?</div></div><input type="hidden" id="s_id_49" value="62"><input type="hidden" id="table_id_49" value="137">
+				<div class="alert alert-success javob" id="javob_49_3" onclick="belgila(&#39;49&#39;,&#39;3&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Бир ойгача бўлган муддатда</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_49_2" onclick="belgila(&#39;49&#39;,&#39;2&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Кўпи билан уч ойгача бўлган муддатда</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_49_4" onclick="belgila(&#39;49&#39;,&#39;4&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Уч ойгача бўлган муддатда</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_49_1" onclick="belgila(&#39;49&#39;,&#39;1&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Икки ойгача бўлган муддатда</div>
+				</div>
+		</div>
+		<div id="block_50" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">50). Хорижий фуқароларни ва фуқаролиги бўлмаган шахсларни олий ўқув юртидан кейинги таълим муассасаларига қабул қилиш қандай амалга оширилади?</div></div><input type="hidden" id="s_id_50" value="97"><input type="hidden" id="table_id_50" value="137">
+				<div class="alert alert-success javob" id="javob_50_1" onclick="belgila(&#39;50&#39;,&#39;1&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Қабул квоталари доирасида</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_50_3" onclick="belgila(&#39;50&#39;,&#39;3&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Қабул квоталаридан ортиқча тўлов-контракт асосида</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_50_2" onclick="belgila(&#39;50&#39;,&#39;2&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Қабул квоталаридан ташқари</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_50_4" onclick="belgila(&#39;50&#39;,&#39;4&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Тўлов - контракт асосида</div>
+				</div>
+		</div>
+		<div id="block_51" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">51). Тасарруфида таълим муассасалари бўлган вазирлик ва идоралар аттестация жадвалини ҳамда аттестация текширувига оид ҳужжатларни аттестация бошланишидан неча ой олдин Давлат тест марказидан оладилар?</div></div><input type="hidden" id="s_id_51" value="81"><input type="hidden" id="table_id_51" value="137">
+				<div class="alert alert-success javob" id="javob_51_2" onclick="belgila(&#39;51&#39;,&#39;2&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">3 ой олдин</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_51_1" onclick="belgila(&#39;51&#39;,&#39;1&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">1 ой олдин</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_51_3" onclick="belgila(&#39;51&#39;,&#39;3&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">2 ой олдин</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_51_4" onclick="belgila(&#39;51&#39;,&#39;4&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">6 ой олдин</div>
+				</div>
+		</div>
+		<div id="block_52" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">52). Кафедралар бирлаштирилган тақдирда янгидан ташкил этилган кафедра мудири лавозимини эгаллаш тўғрисидаги масала қандай ҳал қилинади?</div></div><input type="hidden" id="s_id_52" value="277"><input type="hidden" id="table_id_52" value="137">
+				<div class="alert alert-success javob" id="javob_52_4" onclick="belgila(&#39;52&#39;,&#39;4&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">олий таълим муассасасининг илмий кенгаши олдиндан танлов эълон қилиши ва очиқ овоз бериш йўли билан</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_52_3" onclick="belgila(&#39;52&#39;,&#39;3&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">олий таълим муассасасининг илмий кенгаши олдиндан танлов эълон қилмасдан, яширин овоз бериш йўли билан</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_52_2" onclick="belgila(&#39;52&#39;,&#39;2&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">олий таълим муассасасининг илмий кенгаши олдиндан танлов эълон қилиши ва яширин овоз бериш йўли билан</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_52_1" onclick="belgila(&#39;52&#39;,&#39;1&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">олий таълим муассасасининг илмий кенгаши олдиндан танлов эълон қилмасдан, очиқ овоз бериш йўли билан</div>
+				</div>
+		</div>
+		<div id="block_53" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">53). Ходим меҳнат шартномаси тузилгандан кейин ишга киришиши шарт бўлган муддат томонларнинг келишувига кўра белгиланади ушбу муддат неча ойдан ошиши мумкин эмас?</div></div><input type="hidden" id="s_id_53" value="30"><input type="hidden" id="table_id_53" value="137">
+				<div class="alert alert-success javob" id="javob_53_2" onclick="belgila(&#39;53&#39;,&#39;2&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">3 ойдан</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_53_4" onclick="belgila(&#39;53&#39;,&#39;4&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Бундай муддат белгиланмаган.</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_53_3" onclick="belgila(&#39;53&#39;,&#39;3&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">1 ойдан</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_53_1" onclick="belgila(&#39;53&#39;,&#39;1&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">2 ойдан</div>
+				</div>
+		</div>
+		<div id="block_54" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">54). Қонунчилик палатаси депутатлари ҳамда Сенатда доимий асосда ишловчи Сенат аъзолари ўз ваколатлари даврида қандай фаолият билан шуғулланишлари мумкин?</div></div><input type="hidden" id="s_id_54" value="114"><input type="hidden" id="table_id_54" value="137">
+				<div class="alert alert-success javob" id="javob_54_1" onclick="belgila(&#39;54&#39;,&#39;1&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Илмий ва педагогик фаолият билан</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_54_4" onclick="belgila(&#39;54&#39;,&#39;4&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Ҳақ тўланадиган бошқа турдаги фаолият билан.</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_54_2" onclick="belgila(&#39;54&#39;,&#39;2&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Ўз касбий фаолияти билан</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_54_3" onclick="belgila(&#39;54&#39;,&#39;3&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Тадбиркорлик фаолияти билан</div>
+				</div>
+		</div>
+		<div id="block_55" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">55). Кимлар магистратурада педагогик фаолият юритиши мумкин?</div></div><input type="hidden" id="s_id_55" value="140"><input type="hidden" id="table_id_55" value="137">
+				<div class="alert alert-success javob" id="javob_55_3" onclick="belgila(&#39;55&#39;,&#39;3&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">илмий унвон (илмий даража)га ва камида 5 йиллик узлуксиз илмий-педагогик (илмий) иш стажига эга бўлган шахслар</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_55_4" onclick="belgila(&#39;55&#39;,&#39;4&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">илмий унвон (илмий даража)га ва камида 3 йиллик узлуксиз илмий-педагогик (илмий) иш стажига эга бўлган, шунингдек хорижий мамлакатларнинг фалсафа доктори (Ph.D) ёки унга тенглаштирилган бошқа илмий даражали шахслар</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_55_1" onclick="belgila(&#39;55&#39;,&#39;1&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">илмий даражага ва камида 3 йиллик узлуксиз илмий-педагогик (илмий) иш стажига эга бўлган, шунингдек хорижий мамлакатларнинг фалсафа доктори (Ph.D) ёки унга тенглаштирилган бошқа илмий даражали шахслар</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_55_2" onclick="belgila(&#39;55&#39;,&#39;2&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">илмий унвон (илмий даража)га ва камида 5 йиллик узлуксиз илмий-педагогик (илмий) иш стажига эга бўлган, шунингдек хорижий мамлакатларнинг фалсафа доктори (Ph.D) ёки унга тенглаштирилган бошқа илмий даражали шахслар</div>
+				</div>
+		</div>
+		<div id="block_56" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">56). “Алишер Навоий номидаги Тошкент давлат Ўзбек тили ва адабиёти университети фаолиятини ташкил этиш тўғрисида”ги Ўзбекистон Республикаси Президентининг Фармони қачон қабул қилинди?</div></div><input type="hidden" id="s_id_56" value="8"><input type="hidden" id="table_id_56" value="137">
+				<div class="alert alert-success javob" id="javob_56_1" onclick="belgila(&#39;56&#39;,&#39;1&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">2016 йил 15 май, ПФ-4797</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_56_3" onclick="belgila(&#39;56&#39;,&#39;3&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">2016 йил 13 май, ПФ-4797</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_56_2" onclick="belgila(&#39;56&#39;,&#39;2&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">2016 йил 13 май, ПФ-4297</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_56_4" onclick="belgila(&#39;56&#39;,&#39;4&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">2016 йил 13 май, ПФ-4497</div>
+				</div>
+		</div>
+		<div id="block_57" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">57). Таълим олувчиларни аккредитация қилинган бир таълим муассасасидан бошқасига ўтказиш тартибини белгилаш қайси ваколатли орган томонидан амалга оширилади?</div></div><input type="hidden" id="s_id_57" value="132"><input type="hidden" id="table_id_57" value="137">
+				<div class="alert alert-success javob" id="javob_57_2" onclick="belgila(&#39;57&#39;,&#39;2&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Махсус ваколатли давлат органлари</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_57_4" onclick="belgila(&#39;57&#39;,&#39;4&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Ўзбекистон Республикаси Вазирлар Махкамаси</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_57_3" onclick="belgila(&#39;57&#39;,&#39;3&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Олий ва ўрта махсус таълим вазирлиги</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_57_1" onclick="belgila(&#39;57&#39;,&#39;1&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Тегишли вазирликлар ва идоралар</div>
+				</div>
+		</div>
+		<div id="block_58" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">58). “Инновацион ғоялар етакчиси” кўкрак нишони кимларга топшириалди?</div></div><input type="hidden" id="s_id_58" value="828"><input type="hidden" id="table_id_58" value="137">
+				<div class="alert alert-success javob" id="javob_58_1" onclick="belgila(&#39;58&#39;,&#39;1&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Ёш олим ва талабаларга ҳамда ОТМларида таълим сифатини оширишга ҳисса қўшган кадрлар буюртмачиларининг вакилларига</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_58_3" onclick="belgila(&#39;58&#39;,&#39;3&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Ёш олим ва талабаларга </div>
+				</div>
+				<div class="alert alert-success javob" id="javob_58_2" onclick="belgila(&#39;58&#39;,&#39;2&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Ёш олим ва талабаларга ҳамда ташаббускор фуқароларга</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_58_4" onclick="belgila(&#39;58&#39;,&#39;4&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Ёш олим ва талабаларга ҳамда профессор-ўқитувчиларга</div>
+				</div>
+		</div>
+		<div id="block_59" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">59). 2018/2019 ўқув йилидан бошлаб олий таълим муассасаларида қайси бакалавриат таълим йўналиши бўйича кадрлар тайёрлаш ўқиш муддати 3 йиллик дастурлар доирасида амалга оширилади?</div></div><input type="hidden" id="s_id_59" value="830"><input type="hidden" id="table_id_59" value="137">
+				<div class="alert alert-success javob" id="javob_59_4" onclick="belgila(&#39;59&#39;,&#39;4&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Амалий таълим йўналишлари</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_59_3" onclick="belgila(&#39;59&#39;,&#39;3&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Тегишли таълим йўналишлари</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_59_1" onclick="belgila(&#39;59&#39;,&#39;1&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Мактабгача таълим</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_59_2" onclick="belgila(&#39;59&#39;,&#39;2&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Барча таълим йўналишлари</div>
+				</div>
+		</div>
+		<div id="block_60" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">60). Магистратура мутахассисликларида илмий фаолият неча фоизни ташкил этади?</div></div><input type="hidden" id="s_id_60" value="21"><input type="hidden" id="table_id_60" value="137">
+				<div class="alert alert-success javob" id="javob_60_4" onclick="belgila(&#39;60&#39;,&#39;4&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">50 - 55 %</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_60_2" onclick="belgila(&#39;60&#39;,&#39;2&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">45 - 55 %</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_60_1" onclick="belgila(&#39;60&#39;,&#39;1&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">40 - 55 %</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_60_3" onclick="belgila(&#39;60&#39;,&#39;3&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">45 - 50 %</div>
+				</div>
+		</div>
+		<div id="block_61" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">61). Олий таълим муассасаларини аккредитатлаш тартиби қайси ваколатли орган томонидан белгиланади?</div></div><input type="hidden" id="s_id_61" value="122"><input type="hidden" id="table_id_61" value="137">
+				<div class="alert alert-success javob" id="javob_61_4" onclick="belgila(&#39;61&#39;,&#39;4&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Ўзбекистон Республикаси Вазирлар Маҳкамаси томонидан</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_61_1" onclick="belgila(&#39;61&#39;,&#39;1&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Давлат тест марказининг кадрлар тайёрлаш сифатини назорат қилиш, педагог кадрлар ва таълим муассасаларини аттестатлаш бошқармаси томонидан</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_61_3" onclick="belgila(&#39;61&#39;,&#39;3&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Олий ва ўрта махсус таълим вазирлиги томонидан</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_61_2" onclick="belgila(&#39;61&#39;,&#39;2&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Махсус ваколатли давлат органлари томонидан</div>
+				</div>
+		</div>
+		<div id="block_62" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">62). Талабаларга стипендияни тўғри тайинлаш ва тўлаш устидан назорат қилиш кимнинг зиммасига юкланади?</div></div><input type="hidden" id="s_id_62" value="51"><input type="hidden" id="table_id_62" value="137">
+				<div class="alert alert-success javob" id="javob_62_1" onclick="belgila(&#39;62&#39;,&#39;1&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Олий таълим муассасасининг факультет деканига юкланади</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_62_2" onclick="belgila(&#39;62&#39;,&#39;2&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Олий таълим муассасасининг ректорига юкланади</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_62_4" onclick="belgila(&#39;62&#39;,&#39;4&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Стипендия буйруғини тайёрлайдиган шахсга юкланади.</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_62_3" onclick="belgila(&#39;62&#39;,&#39;3&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Олий таълим муассасасининг стипендия комиссиясига юкланади</div>
+				</div>
+		</div>
+		<div id="block_63" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">63). ОТМ Кенгашининг ваколат муддати неча йил?</div></div><input type="hidden" id="s_id_63" value="67"><input type="hidden" id="table_id_63" value="137">
+				<div class="alert alert-success javob" id="javob_63_2" onclick="belgila(&#39;63&#39;,&#39;2&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">1 йил</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_63_1" onclick="belgila(&#39;63&#39;,&#39;1&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">3 йил</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_63_3" onclick="belgila(&#39;63&#39;,&#39;3&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">5 йил</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_63_4" onclick="belgila(&#39;63&#39;,&#39;4&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Муддатсиз</div>
+				</div>
+		</div>
+		<div id="block_64" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">64). Ўқув режаси таърифи қайси жавобда тўғри кўрсатилган?</div></div><input type="hidden" id="s_id_64" value="142"><input type="hidden" id="table_id_64" value="137">
+				<div class="alert alert-success javob" id="javob_64_3" onclick="belgila(&#39;64&#39;,&#39;3&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">ўқув режаси — олий таълимнинг муайян билим соҳаси бўйича ўқув фаолияти турлари, ўқув фанлари ва курсларининг таркиби, уларни ўрганишнинг изчиллиги ва соатлардаги ҳажмини белгилайдиган ҳужжат</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_64_4" onclick="belgila(&#39;64&#39;,&#39;4&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">ўқув режаси — олий таълимнинг муайян мутахассислик бўйича ўқув фаолияти турлари, ўқув фанлари ва курсларининг таркиби, уларни ўрганишнинг изчиллиги ва соатлардаги ҳажмини белгилайдиган ҳужжат</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_64_1" onclick="belgila(&#39;64&#39;,&#39;1&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">ўқув режаси — олий таълимнинг муайян бакалавриат таълим йўналиши ёки магистратура мутахассислиги бўйича ўқув фаолияти турлари, ўқув фанлари ва курсларининг таркиби, уларни ўрганишнинг изчиллиги ва соатлардаги ҳажмини белгилайдиган ҳужжат</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_64_2" onclick="belgila(&#39;64&#39;,&#39;2&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">ўқув режаси — олий таълимнинг муайян таълим соҳаси бўйича ўқув фаолияти турлари, ўқув фанлари ва курсларининг таркиби, уларни ўрганишнинг изчиллиги ва соатлардаги ҳажмини белгилайдиган ҳужжат</div>
+				</div>
+		</div>
+		<div id="block_65" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">65). Педагог, илмий кадрларни аттестациядан ўтказиш тартибини белгилаш қайси давлат органининг ваколати доирасига киради?</div></div><input type="hidden" id="s_id_65" value="77"><input type="hidden" id="table_id_65" value="137">
+				<div class="alert alert-success javob" id="javob_65_4" onclick="belgila(&#39;65&#39;,&#39;4&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Ўзбекистон Республикаси Вазирлар Махкамаси</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_65_3" onclick="belgila(&#39;65&#39;,&#39;3&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Давлат тест маркази</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_65_2" onclick="belgila(&#39;65&#39;,&#39;2&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Олий ва ўрта махсус таълим вазирлиги</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_65_1" onclick="belgila(&#39;65&#39;,&#39;1&#39;,&#39;1_2&#39;)">
+					<div class="reset-this">Олий таълим муассасаси</div>
+				</div>
+		</div>
+		<div id="block_66" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">66). Креатив компетентлик тушунчаси қандай маънони англатади?</div></div><input type="hidden" id="s_id_66" value="179"><input type="hidden" id="table_id_66" value="137">
+				<div class="alert alert-success javob" id="javob_66_1" onclick="belgila(&#39;66&#39;,&#39;1&#39;,&#39;2_1&#39;)">
+					<div class="reset-this">изчил равишда касбий ўсишга эришиш, малака даражасини ошириб бориш, касбий фаолиятда ўз ички имкониятларини намоён қилиш</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_66_2" onclick="belgila(&#39;66&#39;,&#39;2&#39;,&#39;2_1&#39;)">
+					<div class="reset-this">таълим сифатини яхшилаш, тарбия жараёнининг самарадорлигини оширишга доир янги ғояларни илгари суриш, уларни амалиётга муваффақиятли татбиқ этиш</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_66_4" onclick="belgila(&#39;66&#39;,&#39;4&#39;,&#39;2_1&#39;)">
+					<div class="reset-this">касбий-педагогик фаолиятга нисбатан танқидий ва ижодий ёндашиш, ўзининг ижодкорлик малакаларига эгалигини намойиш эта олиш</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_66_3" onclick="belgila(&#39;66&#39;,&#39;3&#39;,&#39;2_1&#39;)">
+					<div class="reset-this">таълим жараёнининг барча иштирокчилари, жумладан, талабалар билан самимий мулоқотда бўлиш, уларни тинглай билиш, уларга ижобий таъсир кўрсата олиш</div>
+				</div>
+		</div>
+		<div id="block_67" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">67). Муайян ўқув предметини ўқитишнинг илмий асосланган метод, қоида ва усуллар тизими – бу ...</div></div><input type="hidden" id="s_id_67" value="308"><input type="hidden" id="table_id_67" value="137">
+				<div class="alert alert-success javob" id="javob_67_4" onclick="belgila(&#39;67&#39;,&#39;4&#39;,&#39;2_1&#39;)">
+					<div class="reset-this">Таълим воситаси</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_67_2" onclick="belgila(&#39;67&#39;,&#39;2&#39;,&#39;2_1&#39;)">
+					<div class="reset-this">Таълим методикаси</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_67_1" onclick="belgila(&#39;67&#39;,&#39;1&#39;,&#39;2_1&#39;)">
+					<div class="reset-this">Таълим методи</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_67_3" onclick="belgila(&#39;67&#39;,&#39;3&#39;,&#39;2_1&#39;)">
+					<div class="reset-this">Таълим шакли</div>
+				</div>
+		</div>
+		<div id="block_68" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">68). Тарбиявий таъсир кўрсатишнинг асосий шакллари қайсилар?</div></div><input type="hidden" id="s_id_68" value="172"><input type="hidden" id="table_id_68" value="137">
+				<div class="alert alert-success javob" id="javob_68_4" onclick="belgila(&#39;68&#39;,&#39;4&#39;,&#39;2_1&#39;)">
+					<div class="reset-this">Очиқчасига гаплашиш ва шахс хусусиятларини ҳисобга олиш</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_68_3" onclick="belgila(&#39;68&#39;,&#39;3&#39;,&#39;2_1&#39;)">
+					<div class="reset-this">Рағбатлантириш ва жазолаш</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_68_2" onclick="belgila(&#39;68&#39;,&#39;2&#39;,&#39;2_1&#39;)">
+					<div class="reset-this">Очиқчасига гаплашиш</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_68_1" onclick="belgila(&#39;68&#39;,&#39;1&#39;,&#39;2_1&#39;)">
+					<div class="reset-this">Шахс хусусиятларини ҳисобга олиш</div>
+				</div>
+		</div>
+		<div id="block_69" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">69). Далилларни аниқлаш, уларни келтириш ва таърифлаш, ҳаракатлар жараёни,  усулларини ташкил этиш ва тавсифлашга оид топшириқлар қандай номланади?</div></div><input type="hidden" id="s_id_69" value="291"><input type="hidden" id="table_id_69" value="137">
+				<div class="alert alert-success javob" id="javob_69_4" onclick="belgila(&#39;69&#39;,&#39;4&#39;,&#39;2_1&#39;)">
+					<div class="reset-this">Маълумотларни эълон қилишга оид топшириқлар</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_69_3" onclick="belgila(&#39;69&#39;,&#39;3&#39;,&#39;2_1&#39;)">
+					<div class="reset-this">Хотирада сақлаш, қайта ёдга туширишни талаб этувчи топшириқлар</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_69_2" onclick="belgila(&#39;69&#39;,&#39;2&#39;,&#39;2_1&#39;)">
+					<div class="reset-this">Рақам ва маълумотлар билан ишлашда оддий фикрий операцияларни тақозо этувчи топшириқлар</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_69_1" onclick="belgila(&#39;69&#39;,&#39;1&#39;,&#39;2_1&#39;)">
+					<div class="reset-this">Рақам ва маълумотлар билан ишлашда мураккаб фикрий операцияларни тақозо этувчи топшириқлар</div>
+				</div>
+		</div>
+		<div id="block_70" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">70). Педагогик технологияга оид энг биринчи журнал қаерда ва қачон чоп этилган?</div></div><input type="hidden" id="s_id_70" value="180"><input type="hidden" id="table_id_70" value="137">
+				<div class="alert alert-success javob" id="javob_70_4" onclick="belgila(&#39;70&#39;,&#39;4&#39;,&#39;2_1&#39;)">
+					<div class="reset-this">Англияда, 1957 йил</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_70_2" onclick="belgila(&#39;70&#39;,&#39;2&#39;,&#39;2_1&#39;)">
+					<div class="reset-this">Японияда, 1972 йил</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_70_3" onclick="belgila(&#39;70&#39;,&#39;3&#39;,&#39;2_1&#39;)">
+					<div class="reset-this">Японияда, 1961 йил</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_70_1" onclick="belgila(&#39;70&#39;,&#39;1&#39;,&#39;2_1&#39;)">
+					<div class="reset-this">АҚШда, 1961 йил</div>
+				</div>
+		</div>
+		<div id="block_71" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">71). Нима ўзида жамият томонидан ўқитувчи шахсига, у томонидан педагогик мажбуриятларнинг бажарилишига қўйиладиган талаб ва ахлоқий йўл-йўриқ, кўрсатмаларни жамлайди?</div></div><input type="hidden" id="s_id_71" value="310"><input type="hidden" id="table_id_71" value="137">
+				<div class="alert alert-success javob" id="javob_71_1" onclick="belgila(&#39;71&#39;,&#39;1&#39;,&#39;2_1&#39;)">
+					<div class="reset-this">Педагогик обрў</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_71_3" onclick="belgila(&#39;71&#39;,&#39;3&#39;,&#39;2_1&#39;)">
+					<div class="reset-this">Педагогик мажбурият</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_71_2" onclick="belgila(&#39;71&#39;,&#39;2&#39;,&#39;2_1&#39;)">
+					<div class="reset-this">Педагогик адолат</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_71_4" onclick="belgila(&#39;71&#39;,&#39;4&#39;,&#39;2_1&#39;)">
+					<div class="reset-this">Касбий-педагогик бурч</div>
+				</div>
+		</div>
+		<div id="block_72" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">72). Талабаларнинг билим олиш фаолияти ўйин фаолияти билан уйғун­лашган дарслар қандай аталади?</div></div><input type="hidden" id="s_id_72" value="257"><input type="hidden" id="table_id_72" value="137">
+				<div class="alert alert-success javob" id="javob_72_4" onclick="belgila(&#39;72&#39;,&#39;4&#39;,&#39;2_1&#39;)">
+					<div class="reset-this">Инсерт</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_72_2" onclick="belgila(&#39;72&#39;,&#39;2&#39;,&#39;2_1&#39;)">
+					<div class="reset-this">Аралаш дарс</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_72_3" onclick="belgila(&#39;72&#39;,&#39;3&#39;,&#39;2_1&#39;)">
+					<div class="reset-this">Дидактик ўйинли дарс</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_72_1" onclick="belgila(&#39;72&#39;,&#39;1&#39;,&#39;2_1&#39;)">
+					<div class="reset-this">Ўйинли дарс</div>
+				</div>
+		</div>
+		<div id="block_73" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">73). Ж.Гилфорд креативликни тавсифлайдиган қандай индивидуал қобилиятларни белгилайди?</div></div><input type="hidden" id="s_id_73" value="209"><input type="hidden" id="table_id_73" value="137">
+				<div class="alert alert-success javob" id="javob_73_3" onclick="belgila(&#39;73&#39;,&#39;3&#39;,&#39;2_1&#39;)">
+					<div class="reset-this">Фикрининг равонлиги, оригиналлик, қизиқувчанлик, фаразлар яратиш қобилияти, фантазия.</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_73_4" onclick="belgila(&#39;73&#39;,&#39;4&#39;,&#39;2_1&#39;)">
+					<div class="reset-this">Фикрининг равонлиги, оригиналлик, қизиқувчанлик, фантазия, креативлик</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_73_1" onclick="belgila(&#39;73&#39;,&#39;1&#39;,&#39;2_1&#39;)">
+					<div class="reset-this">Фикрни мақсадга мувофиқ йўллай олиш, оригиналлик, қизиқувчанлик, фаразлар яратиш қобилияти, фантазия.</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_73_2" onclick="belgila(&#39;73&#39;,&#39;2&#39;,&#39;2_1&#39;)">
+					<div class="reset-this">Фикрининг равонлиги, мақсадга мувофиқ йўллай олиш, оригиналлик, қизиқувчанлик, фаразлар яратиш қобилияти, фантазия.</div>
+				</div>
+		</div>
+		<div id="block_74" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">74). Педагогик дастурий воситалар бу - ...</div></div><input type="hidden" id="s_id_74" value="535"><input type="hidden" id="table_id_74" value="137">
+				<div class="alert alert-success javob" id="javob_74_2" onclick="belgila(&#39;74&#39;,&#39;2&#39;,&#39;3_1&#39;)">
+					<div class="reset-this">интернет технологиялари ёрдамида ўқув жараёнини қисман ёки тўлиқ автоматлаштириш учун мўлжалланган дидактик восита</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_74_3" onclick="belgila(&#39;74&#39;,&#39;3&#39;,&#39;3_1&#39;)">
+					<div class="reset-this">компьютер технологиялари ёрдамида ўқув жараёнини қисман ёки тўлиқ автоматлаштириш учун мўлжалланган дидактик восита</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_74_1" onclick="belgila(&#39;74&#39;,&#39;1&#39;,&#39;3_1&#39;)">
+					<div class="reset-this">компьютер технологиялари ёрдамида ўқув жараёнини мониторингини олиб бориш учун мўлжалланган дидактик восита</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_74_4" onclick="belgila(&#39;74&#39;,&#39;4&#39;,&#39;3_1&#39;)">
+					<div class="reset-this">компьютер технологиялари ёрдамида ўқув жараёнини бошқарувчи тизим</div>
+				</div>
+		</div>
+		<div id="block_75" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">75). Интернет тармоғига ажратилган алоқа канали орқали уланиш ...</div></div><input type="hidden" id="s_id_75" value="525"><input type="hidden" id="table_id_75" value="137">
+				<div class="alert alert-success javob" id="javob_75_1" onclick="belgila(&#39;75&#39;,&#39;1&#39;,&#39;3_1&#39;)">
+					<div class="reset-this">Dial-up</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_75_2" onclick="belgila(&#39;75&#39;,&#39;2&#39;,&#39;3_1&#39;)">
+					<div class="reset-this">Wi-Fi</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_75_3" onclick="belgila(&#39;75&#39;,&#39;3&#39;,&#39;3_1&#39;)">
+					<div class="reset-this">ADSL</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_75_4" onclick="belgila(&#39;75&#39;,&#39;4&#39;,&#39;3_1&#39;)">
+					<div class="reset-this">GSM</div>
+				</div>
+		</div>
+		<div id="block_76" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">76). Электрон портфолио тизимига касбий фаолият натижаларини қайд этишда илова қилинадиган ҳар бир файлнинг ҳажми кўпи билан неча Мб бўлиши мумкин?</div></div><input type="hidden" id="s_id_76" value="545"><input type="hidden" id="table_id_76" value="137">
+				<div class="alert alert-success javob" id="javob_76_4" onclick="belgila(&#39;76&#39;,&#39;4&#39;,&#39;3_1&#39;)">
+					<div class="reset-this">6</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_76_2" onclick="belgila(&#39;76&#39;,&#39;2&#39;,&#39;3_1&#39;)">
+					<div class="reset-this">3</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_76_1" onclick="belgila(&#39;76&#39;,&#39;1&#39;,&#39;3_1&#39;)">
+					<div class="reset-this">4</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_76_3" onclick="belgila(&#39;76&#39;,&#39;3&#39;,&#39;3_1&#39;)">
+					<div class="reset-this">2</div>
+				</div>
+		</div>
+		<div id="block_77" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">77). CMS (Content Management Systems) қандай тизим?</div></div><input type="hidden" id="s_id_77" value="575"><input type="hidden" id="table_id_77" value="137">
+				<div class="alert alert-success javob" id="javob_77_1" onclick="belgila(&#39;77&#39;,&#39;1&#39;,&#39;3_1&#39;)">
+					<div class="reset-this">виртуал таълим жараёнини бошқарувчи тизим</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_77_2" onclick="belgila(&#39;77&#39;,&#39;2&#39;,&#39;3_1&#39;)">
+					<div class="reset-this">ташқи ўқув контентини бошқариш тизими</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_77_3" onclick="belgila(&#39;77&#39;,&#39;3&#39;,&#39;3_1&#39;)">
+					<div class="reset-this">ички контентни бошқариш тизими</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_77_4" onclick="belgila(&#39;77&#39;,&#39;4&#39;,&#39;3_1&#39;)">
+					<div class="reset-this">муаллифлик дастурий воситалари</div>
+				</div>
+		</div>
+		<div id="block_78" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">78). Ispring дастурида “Вақт шкаласи” (Временная шкала) интерактив элементи қайси бўлимда жойлашган?</div></div><input type="hidden" id="s_id_78" value="582"><input type="hidden" id="table_id_78" value="137">
+				<div class="alert alert-success javob" id="javob_78_3" onclick="belgila(&#39;78&#39;,&#39;3&#39;,&#39;3_1&#39;)">
+					<div class="reset-this">Книга</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_78_2" onclick="belgila(&#39;78&#39;,&#39;2&#39;,&#39;3_1&#39;)">
+					<div class="reset-this">Интерактивности</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_78_1" onclick="belgila(&#39;78&#39;,&#39;1&#39;,&#39;3_1&#39;)">
+					<div class="reset-this">Дизайн</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_78_4" onclick="belgila(&#39;78&#39;,&#39;4&#39;,&#39;3_1&#39;)">
+					<div class="reset-this">Тест</div>
+				</div>
+		</div>
+		<div id="block_79" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">79). Намойиш тажрибалари, виртуал лаборатория ишларини ташкиллаштириш имкониятини берувчи веб муҳитида ишлайдиган дастурий воситани кўрсатинг</div></div><input type="hidden" id="s_id_79" value="534"><input type="hidden" id="table_id_79" value="137">
+				<div class="alert alert-success javob" id="javob_79_3" onclick="belgila(&#39;79&#39;,&#39;3&#39;,&#39;3_1&#39;)">
+					<div class="reset-this">Phet</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_79_2" onclick="belgila(&#39;79&#39;,&#39;2&#39;,&#39;3_1&#39;)">
+					<div class="reset-this">Moodle</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_79_4" onclick="belgila(&#39;79&#39;,&#39;4&#39;,&#39;3_1&#39;)">
+					<div class="reset-this">MS PowerPoint</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_79_1" onclick="belgila(&#39;79&#39;,&#39;1&#39;,&#39;3_1&#39;)">
+					<div class="reset-this">WordPress</div>
+				</div>
+		</div>
+		<div id="block_80" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">80). Электрон почта манзилини кўрсатишда фойдаланилиши шарт бўлган белгини аниқланг</div></div><input type="hidden" id="s_id_80" value="551"><input type="hidden" id="table_id_80" value="137">
+				<div class="alert alert-success javob" id="javob_80_4" onclick="belgila(&#39;80&#39;,&#39;4&#39;,&#39;3_1&#39;)">
+					<div class="reset-this">@</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_80_1" onclick="belgila(&#39;80&#39;,&#39;1&#39;,&#39;3_1&#39;)">
+					<div class="reset-this">^</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_80_2" onclick="belgila(&#39;80&#39;,&#39;2&#39;,&#39;3_1&#39;)">
+					<div class="reset-this">&amp;</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_80_3" onclick="belgila(&#39;80&#39;,&#39;3&#39;,&#39;3_1&#39;)">
+					<div class="reset-this">$</div>
+				</div>
+		</div>
+		<div id="block_81" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">81). …….is it? – It is a car.</div></div><input type="hidden" id="s_id_81" value="781"><input type="hidden" id="table_id_81" value="137">
+				<div class="alert alert-success javob" id="javob_81_3" onclick="belgila(&#39;81&#39;,&#39;3&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">what</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_81_4" onclick="belgila(&#39;81&#39;,&#39;4&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">who</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_81_1" onclick="belgila(&#39;81&#39;,&#39;1&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">where</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_81_2" onclick="belgila(&#39;81&#39;,&#39;2&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">when</div>
+				</div>
+		</div>
+		<div id="block_82" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">82). I have …. egg and … cup of tea for breakfast.</div></div><input type="hidden" id="s_id_82" value="787"><input type="hidden" id="table_id_82" value="137">
+				<div class="alert alert-success javob" id="javob_82_1" onclick="belgila(&#39;82&#39;,&#39;1&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">a/a</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_82_3" onclick="belgila(&#39;82&#39;,&#39;3&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">a/an</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_82_2" onclick="belgila(&#39;82&#39;,&#39;2&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">an/a</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_82_4" onclick="belgila(&#39;82&#39;,&#39;4&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">an/-</div>
+				</div>
+		</div>
+		<div id="block_83" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">83). This is Lola. …… is my sister.</div></div><input type="hidden" id="s_id_83" value="794"><input type="hidden" id="table_id_83" value="137">
+				<div class="alert alert-success javob" id="javob_83_3" onclick="belgila(&#39;83&#39;,&#39;3&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">he</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_83_1" onclick="belgila(&#39;83&#39;,&#39;1&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">her</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_83_2" onclick="belgila(&#39;83&#39;,&#39;2&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">she</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_83_4" onclick="belgila(&#39;83&#39;,&#39;4&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">his</div>
+				</div>
+		</div>
+		<div id="block_84" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">84). Mrs. Barbara is … English teacher.</div></div><input type="hidden" id="s_id_84" value="742"><input type="hidden" id="table_id_84" value="137">
+				<div class="alert alert-success javob" id="javob_84_3" onclick="belgila(&#39;84&#39;,&#39;3&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">him</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_84_4" onclick="belgila(&#39;84&#39;,&#39;4&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">you</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_84_1" onclick="belgila(&#39;84&#39;,&#39;1&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">our</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_84_2" onclick="belgila(&#39;84&#39;,&#39;2&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">me</div>
+				</div>
+		</div>
+		<div id="block_85" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">85). Yesterday ... Browns went to ... South America.</div></div><input type="hidden" id="s_id_85" value="710"><input type="hidden" id="table_id_85" value="137">
+				<div class="alert alert-success javob" id="javob_85_4" onclick="belgila(&#39;85&#39;,&#39;4&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">a/-</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_85_1" onclick="belgila(&#39;85&#39;,&#39;1&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">the/-</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_85_2" onclick="belgila(&#39;85&#39;,&#39;2&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">-/the</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_85_3" onclick="belgila(&#39;85&#39;,&#39;3&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">-/-</div>
+				</div>
+		</div>
+		<div id="block_86" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">86). I…much money to go there.</div></div><input type="hidden" id="s_id_86" value="731"><input type="hidden" id="table_id_86" value="137">
+				<div class="alert alert-success javob" id="javob_86_3" onclick="belgila(&#39;86&#39;,&#39;3&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">has got</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_86_1" onclick="belgila(&#39;86&#39;,&#39;1&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">haven’t got</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_86_4" onclick="belgila(&#39;86&#39;,&#39;4&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">hasn’t got</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_86_2" onclick="belgila(&#39;86&#39;,&#39;2&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">have got</div>
+				</div>
+		</div>
+		<div id="block_87" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">87). I…a lot of time to talk to you.</div></div><input type="hidden" id="s_id_87" value="730"><input type="hidden" id="table_id_87" value="137">
+				<div class="alert alert-success javob" id="javob_87_2" onclick="belgila(&#39;87&#39;,&#39;2&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">haven’t got</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_87_1" onclick="belgila(&#39;87&#39;,&#39;1&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">hasn’t got</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_87_3" onclick="belgila(&#39;87&#39;,&#39;3&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">have got</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_87_4" onclick="belgila(&#39;87&#39;,&#39;4&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">will have got</div>
+				</div>
+		</div>
+		<div id="block_88" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">88). Yesterday’s news …….very important.</div></div><input type="hidden" id="s_id_88" value="808"><input type="hidden" id="table_id_88" value="137">
+				<div class="alert alert-success javob" id="javob_88_2" onclick="belgila(&#39;88&#39;,&#39;2&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">are</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_88_1" onclick="belgila(&#39;88&#39;,&#39;1&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">-</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_88_4" onclick="belgila(&#39;88&#39;,&#39;4&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">were</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_88_3" onclick="belgila(&#39;88&#39;,&#39;3&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">is</div>
+				</div>
+		</div>
+		<div id="block_89" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">89). …he…a certificate?</div></div><input type="hidden" id="s_id_89" value="732"><input type="hidden" id="table_id_89" value="137">
+				<div class="alert alert-success javob" id="javob_89_4" onclick="belgila(&#39;89&#39;,&#39;4&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">has got</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_89_2" onclick="belgila(&#39;89&#39;,&#39;2&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">have got</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_89_1" onclick="belgila(&#39;89&#39;,&#39;1&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">hasn’t got</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_89_3" onclick="belgila(&#39;89&#39;,&#39;3&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">haven’t got</div>
+				</div>
+		</div>
+		<div id="block_90" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">90). - Is it a pen …a pencil? - It is a pen.</div></div><input type="hidden" id="s_id_90" value="780"><input type="hidden" id="table_id_90" value="137">
+				<div class="alert alert-success javob" id="javob_90_3" onclick="belgila(&#39;90&#39;,&#39;3&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">or</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_90_4" onclick="belgila(&#39;90&#39;,&#39;4&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">-</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_90_1" onclick="belgila(&#39;90&#39;,&#39;1&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">and</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_90_2" onclick="belgila(&#39;90&#39;,&#39;2&#39;,&#39;4_1&#39;)">
+					<div class="reset-this">but</div>
+				</div>
+		</div>
+		<div id="block_91" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">91). Тизимли таҳлил қайси соҳалардаги типик муаммоларни ўрганади?</div></div><input type="hidden" id="s_id_91" value="664"><input type="hidden" id="table_id_91" value="137">
+				<div class="alert alert-success javob" id="javob_91_2" onclick="belgila(&#39;91&#39;,&#39;2&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">иқтисодий бошқарув, иқтисодий хавфсизлик, давлат бошқаруви</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_91_4" onclick="belgila(&#39;91&#39;,&#39;4&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">хавфсизлик, давлат бошқаруви, иқтисодиёт</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_91_1" onclick="belgila(&#39;91&#39;,&#39;1&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">давлат бошқаруви, иқтисодиёт, оилавий мунособатлар</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_91_3" onclick="belgila(&#39;91&#39;,&#39;3&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">маданий, техник - ҳарбий хавфсизлик, давлат бошқаруви, иқтисодиёт</div>
+				</div>
+		</div>
+		<div id="block_92" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">92). Ташқи муҳитнинг тизимга таъсир этувчи омилларига оид ахборотларнинг аниқлик даражасига кўра қарор қабул қилиш турларини кўрсатинг</div></div><input type="hidden" id="s_id_92" value="459"><input type="hidden" id="table_id_92" value="137">
+				<div class="alert alert-success javob" id="javob_92_2" onclick="belgila(&#39;92&#39;,&#39;2&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">Аниқлик шароитида ҚҚҚ, ноаниқлик шароитида ҚҚҚ, иерархия шароитда ҚҚҚ, зиддиятлар шароитида ҚҚҚ</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_92_3" onclick="belgila(&#39;92&#39;,&#39;3&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">Аниқлик шароитида ҚҚҚ, ноаниқлик шароитида ҚҚҚ, иерархия шароитда ҚҚҚ, муаммоли шароитда ҚҚҚ</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_92_4" onclick="belgila(&#39;92&#39;,&#39;4&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">Аниқлик шароитида ҚҚҚ, ноаниқлик шароитида ҚҚҚ, таваккал шароитда ҚҚҚ</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_92_1" onclick="belgila(&#39;92&#39;,&#39;1&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">Аниқлик шароитида ҚҚҚ, ноаниқлик шароитида ҚҚҚ, иерархия шароитда ҚҚҚ, чизиқли шароитда ҚҚҚ</div>
+				</div>
+		</div>
+		<div id="block_93" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">93). Ҳар қандай тизимнинг тузилмавий жиҳатдан асосий ташкил этувчилари қуйидагилардан иборат:</div></div><input type="hidden" id="s_id_93" value="571"><input type="hidden" id="table_id_93" value="137">
+				<div class="alert alert-success javob" id="javob_93_4" onclick="belgila(&#39;93&#39;,&#39;4&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">кириш оқими, чекловлар, ички жараён, чиқиш оқими, “чиқиш оқимининг сифат баҳоси”, тескари алоқа</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_93_2" onclick="belgila(&#39;93&#39;,&#39;2&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">маҳсулот сифати назоратчилари ҳамда маҳсулот истеъмолчилари талаблари асосидаги тескари алоқа</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_93_3" onclick="belgila(&#39;93&#39;,&#39;3&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">кириш оқими, ички жараён, чиқиш оқими, “чиқиш оқимининг сифат баҳоси”,  тескари алоқа</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_93_1" onclick="belgila(&#39;93&#39;,&#39;1&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">кириш оқими, чекловлар, ички жараён, чиқиш оқими, “чиқиш оқимининг сифат баҳоси”</div>
+				</div>
+		</div>
+		<div id="block_94" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">94). Нарса (жараён) ларнинг бир қанча хоссаларини ва улар ўртасидаги алоқаларни фикран ажратиб кўрсатишга нима дейилади?</div></div><input type="hidden" id="s_id_94" value="611"><input type="hidden" id="table_id_94" value="137">
+				<div class="alert alert-success javob" id="javob_94_3" onclick="belgila(&#39;94&#39;,&#39;3&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">апперцепция</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_94_2" onclick="belgila(&#39;94&#39;,&#39;2&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">фрустрация</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_94_4" onclick="belgila(&#39;94&#39;,&#39;4&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">перцепция</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_94_1" onclick="belgila(&#39;94&#39;,&#39;1&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">абстракция</div>
+				</div>
+		</div>
+		<div id="block_95" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">95). Тавсиф бериш, аниқ таҳлил, қиёслаш, даврийлаштириш, хронологик, муаммоли-хронологик, ретроспектив, истиқболни белгилаш, аналогик услублар қандай услублар турига киради?</div></div><input type="hidden" id="s_id_95" value="610"><input type="hidden" id="table_id_95" value="137">
+				<div class="alert alert-success javob" id="javob_95_4" onclick="belgila(&#39;95&#39;,&#39;4&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">тарихий-ижтимоий</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_95_3" onclick="belgila(&#39;95&#39;,&#39;3&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">тарихий-қиёсий усуллар</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_95_1" onclick="belgila(&#39;95&#39;,&#39;1&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">тарихий-сиёсий</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_95_2" onclick="belgila(&#39;95&#39;,&#39;2&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">сиёсий-психологик</div>
+				</div>
+		</div>
+		<div id="block_96" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">96). Қарор қабул қилишнинг босқичлари қаерда аниқ кўрсатилган?</div></div><input type="hidden" id="s_id_96" value="612"><input type="hidden" id="table_id_96" value="137">
+				<div class="alert alert-success javob" id="javob_96_1" onclick="belgila(&#39;96&#39;,&#39;1&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">муаммонинг диагностикаси; қарор қабул қилиш учун мезонларни ифодалаш; чекланганликларни топиш;  альтернативаларни баҳолаш; охирги (якуний) танлов).</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_96_2" onclick="belgila(&#39;96&#39;,&#39;2&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">муаммонинг диагностикаси; қарор қабул қилиш учун альтернативаларни ифодалаш; альтернативаларни топиш; альтернативаларни баҳолаш; охирги (якуний) танлов).</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_96_4" onclick="belgila(&#39;96&#39;,&#39;4&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">муаммонинг диагностикаси; қарор қабул қилиш учун чекланганликларни ва мезонларни ифодалаш; альтернативаларни топиш; альтернативаларни режалаштириш; охирги (якуний) танлов).</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_96_3" onclick="belgila(&#39;96&#39;,&#39;3&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">муаммонинг диагностикаси; қарор қабул қилиш учун чекланганликларни ва мезонларни ифодалаш; альтернативаларни топиш; альтернативаларни баҳолаш; охирги (якуний) танлов).</div>
+				</div>
+		</div>
+		<div id="block_97" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">97). Қабул қилиниш усулига кўра қарорлар қуйидаги турларга бўлинади:</div></div><input type="hidden" id="s_id_97" value="483"><input type="hidden" id="table_id_97" value="137">
+				<div class="alert alert-success javob" id="javob_97_4" onclick="belgila(&#39;97&#39;,&#39;4&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">Якка, коллектив,  консультатив, биргаликдаги</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_97_3" onclick="belgila(&#39;97&#39;,&#39;3&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">Якка, коллектив,  биргаликдаги, парламент</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_97_1" onclick="belgila(&#39;97&#39;,&#39;1&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">Якка, коллектив,  консультатив, парламент</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_97_2" onclick="belgila(&#39;97&#39;,&#39;2&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">Якка, коллектив,  консультатив, биргаликдаги, парламент</div>
+				</div>
+		</div>
+		<div id="block_98" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">98). Функционал мақсадига қўра  қарорлар қуйидаги турларга бўлинади:</div></div><input type="hidden" id="s_id_98" value="485"><input type="hidden" id="table_id_98" value="137">
+				<div class="alert alert-success javob" id="javob_98_1" onclick="belgila(&#39;98&#39;,&#39;1&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">Ташкиллаштирувчи, мослаштирувчи, активлаштирувчи</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_98_2" onclick="belgila(&#39;98&#39;,&#39;2&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">Мувофиқлаштирувчи, мослаштирувчи, активлаштирувчи</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_98_4" onclick="belgila(&#39;98&#39;,&#39;4&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">Ташкиллаштирувчи, мувофиқлаштирувчи, мослаштирувчи</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_98_3" onclick="belgila(&#39;98&#39;,&#39;3&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">Ташкиллаштирувчи, мувофиқлаштирувчи, активлаштирувчи</div>
+				</div>
+		</div>
+		<div id="block_99" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">99). Ноаниқ омиллар, бу...</div></div><input type="hidden" id="s_id_99" value="478"><input type="hidden" id="table_id_99" value="137">
+				<div class="alert alert-success javob" id="javob_99_3" onclick="belgila(&#39;99&#39;,&#39;3&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">аниқ қиймати маълум, қабул қилиши мумкин бўлган қийматлари номаълум омиллар</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_99_2" onclick="belgila(&#39;99&#39;,&#39;2&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">аниқ қиймати номаълум омиллар</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_99_1" onclick="belgila(&#39;99&#39;,&#39;1&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">аниқ қиймати ҳам, қабул қилиши мумкин бўлган қийматлари ҳам номаълум омиллар</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_99_4" onclick="belgila(&#39;99&#39;,&#39;4&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">қабул қилиши мумкин бўлган қийматлари ҳам номаълум омиллар</div>
+				</div>
+		</div>
+		<div id="block_100" class="block2" width="100%" style="display:none"><div class="alert alert-info"><div class="reset-this">100). Эришиладиган мақсаднинг кўламига кўра қарорлар қуйидаги турларга бўлинади:</div></div><input type="hidden" id="s_id_100" value="481"><input type="hidden" id="table_id_100" value="137">
+				<div class="alert alert-success javob" id="javob_100_2" onclick="belgila(&#39;100&#39;,&#39;2&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">тактик, махсус</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_100_1" onclick="belgila(&#39;100&#39;,&#39;1&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">тактик, директив</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_100_4" onclick="belgila(&#39;100&#39;,&#39;4&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">стратегик, тактик</div>
+				</div>
+				<div class="alert alert-success javob" id="javob_100_3" onclick="belgila(&#39;100&#39;,&#39;3&#39;,&#39;5_1&#39;)">
+					<div class="reset-this">стратегик, махсус</div>
+				</div>
+		</div>
+		<center>
+		<button class="btn btn-white btn-info btn-bold" onclick="prev()" id="next_prev">
+			<i class="ace-icon fa fa-arrow-circle-o-left bigger-120 blue"></i>
+			OLDINGI
+		</button>
+
+		<button class="btn btn-white btn-info btn-bold" onclick="next()" id="next_prev">
+			KEYINGI
+			<i class="ace-icon fa fa-arrow-circle-o-right bigger-120 blue"></i>
+		</button>
+		<div style="float:right">
+			<form name="frm_stop_rem_test" method="post" action="http://markazlar.bimm.uz/test/stop_rem_test.php">
+				<input type="hidden" name="lid" value="301587249">
+				<input type="hidden" name="rem_setting" value="1667">
+				<input type="hidden" name="otm" value="48">
+				<input type="hidden" name="c_id" value="15">
+				<input type="hidden" name="type" value="kirish">
+				<input type="hidden" name="ser_array" id="s_array">
+				<input type="hidden" name="rem_test_stop">
+				<input type="button" name="btn_rem_test_stop" onclick="end_test()" class="btn btn-primary" value="TESTNI TUGATISH">
+			</form>		
+		</div>
+		<div id="clear"></div>
+	</center>		</div>
+	</div>
+</div>
+<div id="emptyDiv"></div>
+			<script>
+			countdown();
+			runUpTime();
+			</script>		
+		</div>
+	
+
+	<!--[if !IE]> -->
+	<script src="./jquery.min.js.Без названия"></script>
+
+	<!-- <![endif]-->
+
+	<!--[if IE]>
+	<script src="../dist/js/jquery.min.js"></script>
+	<![endif]-->
+
+	<!--[if !IE]> -->
+	<script type="text/javascript">
+		window.jQuery || document.write("<script src='../dist/js/jquery.min.js'>"+"<"+"/script>");
+	</script>
+	<script type="text/javascript">
+		if('ontouchstart' in document.documentElement) document.write("<script src='../dist/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+	</script>
+	<script src="./bootstrap.min.js.Без названия"></script>
+	<script src="./jquery-confirm.min.js.Без названия"></script>
+	<script src="./MyScripts.js(1).Без названия"></script>
+
+
+<script>
+
+function closeWindows() {
+    self.close();
+}
+/*
+$(window).blur(function() {
+	closeWindows(); 
+	frameElement.parentNode.removeChild(frameElement);
+}); 
+*/
+</script></body></html>

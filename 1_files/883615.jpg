@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-70921849-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-70921849-2');
+</script>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="content-type" content="text/html;charset=windows-1251" />
+	<meta name="robots" content="none">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link href="/css/style.css" rel="stylesheet" type="text/css"  media="screen, print" />
+	
+	<link rel="shortcut icon" href="/p.ico" />
+	<script type="text/javascript" src="/js/jquery.js"></script>
+	<script type="text/javascript" src="/js/script.js"></script>
+	<script type="text/javascript" src="/js/tinymce/tinymce.min.js"></script>
+
+	<!-- Font Awesome  -->
+	<link rel="stylesheet" href="/bootAwe/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/bootAwe/css/bootstrap.minCostom.css">
+	<!-- <link rel="stylesheet" href="/bootAwe/css/metro-bootstrap.css"> -->
+	<!--[if IE 7]>
+	<link rel="stylesheet" href="/bootAwe/css/font-awesome-ie7.min.css">
+	<![endif]-->
+	<!-- Font Awesome  -->
+
+	<title>Pedagogik portfolio</title>
+</head>
+
+<body>
+
+<script language="javascript">
+function ChangeLangTo(lang){
+	var oldUrl = ["","img","pedagog","883615.jpg"];
+	var newUrl = "";
+	oldUrl[2] = lang;
+	
+	for (var i=1; i<oldUrl.length; i++){
+		newUrl += "/"+oldUrl[i];
+	}
+	document.location = newUrl;
+}
+
+tinymce.init({
+    selector: "textarea",
+    theme: "modern",
+    plugins: [
+        "advlist autolink lists link charmap print preview hr anchor pagebreak",
+        "searchreplace wordcount visualblocks visualchars code fullscreen",
+        "insertdatetime nonbreaking save table contextmenu directionality",
+        "emoticons template paste textcolor colorpicker textpattern"
+    ],
+    toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link | print preview | forecolor backcolor emoticons",
+    image_advtab: true,
+    templates: [
+        {title: 'Test template 1', content: 'Test 1'},
+        {title: 'Test template 2', content: 'Test 2'}
+    ]
+});	
+</script>
+
+<div id="topLine">
+	<div id="top_links">
+		<div id="top_left">
+			<a href="/uz/">Asosiy</a><a href="http://bimm.uz" target="_blanck">Portalga</a>		</div>
+		<div id="top_right">
+			<ul class="adMen">
+						<!--
+				<li><a title="O`zbekcha" href="#" onClick="ChangeLangTo('uz')"><img src="/img/uz.png" class="lang-thumb"></a></li>
+				<li><a title="Русский" href="#" onClick="ChangeLangTo('ru')"><img src="/img/ru.png" class="lang-thumb"></a></li>
+				<li><a title="English" href="#" onClick="ChangeLangTo('en')"><img src="/img/en.png" class="lang-thumb"></a></li>
+				-->
+			</ul>
+		</div>
+		<div id="clear"></div>
+	</div>
+</div>
+
+<link href="/css/style_navi.css" rel="stylesheet" type="text/css" />
+
+<div id="container" align="left">
+	<div class="row color1">
+		<div id="header" class="clearfix">
+		<header>
+		<table border="0" width="100%" cellpadding="0" cellspacing="0">
+		<tr>
+			<td align="left" valign="middle">
+				<a href="/uz/" title="Portfolio"><img src="/img/pico.png" height="100" alt="Portfolio" border="0" class="png"></a>
+			</td>
+			<td valign="middle">
+			<nav>
+				<div id="navigation_bar" class="navigation">
+					<ul id="navigation" class="">
+						<li id="menu-item-820" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home current-menu-ancestor  first"><a href="/uz/">ASOSIY</a> 
+							<ul class="sub-menu">
+								<li id="menu-item-1024" class="menu-item menu-item-type-custom menu-item-object-custom hasSubMenu">
+									<i class="icon-envelope"></i> <a href="/uz/contact/">Bog`lanish</a>
+								</li>
+								
+								<li id="menu-item-1012" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent hasSubMenu">
+									<i class="icon-comments"></i> <a href="/uz/aboute/">Tizim haqida</a> 
+								</li>
+								<li id="menu-item-1012" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent hasSubMenu">
+									<i class="icon-tag"></i> <a href="/uz/help/">Yordam</a> 
+								</li>
+							</ul>
+						</li>
+						
+						<li id="menu-item-880" class="menu-item menu-item-type-custom menu-item-object-custom second">
+							<a href="#">KABINET</a> 
+							<ul class="sub-menu">
+								<li id="menu-item-878" class="menu-item menu-item-type-post_type menu-item-object-page">
+									<i class="icon-ok"></i> <a href="/uz/otm/singin">OTM</a>								</li>								
+								<li id="menu-item-878" class="menu-item menu-item-type-post_type menu-item-object-page">
+									<i class="icon-ok"></i> <a href="/uz/action/enter">Pedagog</a>								</li>								
+								<li id="menu-item-878" class="menu-item menu-item-type-post_type menu-item-object-page">
+									<i class="icon-ok"></i> <a href="/uz/action/stdenter">Talaba</a>								</li>
+							</ul>
+						</li>						
+						<li id="menu-item-870" class="menu-item menu-item-type-post_type menu-item-object-page third">
+							<a href="/uz/muassasalar/">Muassasalar</a> 
+							<ul class="sub-menu">
+								<li id="menu-item-848" class="menu-item menu-item-type-taxonomy menu-item-object-product_categories">
+									<i class="icon-th"></i> <a href="/uz/markazlar">Malaka oshirish markazlari</a> 
+								</li>
+								<li id="menu-item-848" class="menu-item menu-item-type-taxonomy menu-item-object-product_categories">
+									<i class="icon-th-large"></i> <a href="/uz/mintaqaviy-markazlar">Mintaqaviy markazlar</a> 
+								</li>
+								<li id="menu-item-848" class="menu-item menu-item-type-taxonomy menu-item-object-product_categories">
+									<i class="icon-th-list"></i> <a href="/uz/tarmoq-markazlari">Tarmoq markazlari</a> 
+								</li>								
+								<li id="menu-item-848" class="menu-item menu-item-type-taxonomy menu-item-object-product_categories">
+									<i class="icon-list-alt"></i> <a href="/uz/vuz">Oliy ta`lim muassasalari</a> 
+								</li>
+							</ul>
+						</li>
+												<li id="menu-item-868" class="menu-item menu-item-type-post_type menu-item-object-page fifth">
+							<a href="/uz/search/">IZLASH</a> 
+							<ul class="sub-menu">
+								<li id="menu-item-1112" class="menu-item menu-item-type-post_type menu-item-object-page">
+									<i class="icon-search"></i> <a href="/uz/search/">Saytdan izlash</a> 
+								</li>
+							</ul>
+						</li>
+					</ul>					<!-- / Navigation -->
+				</div>
+			</nav>
+			</td>
+			<!-- / navigation  -->
+		</tr>
+		</table>
+		</header>
+		</div>
+		<!-- /header -->
+	</div>
+	<!-- /row -->	
+</div>	
+
+<div class="border-line margin-t10 margin-b30"></div>
+<!--
+<div id="main" align="center" style="height:15px !important; min-height:15px !important; padding:2px !important; font-size:15px;">
+	<marquee direction="left" scrollamount="5" behavior="alternate"><a href="http://pf.bimm.uz" target="_blank" style="color:red">Pedagog portfolio tizimining yangilan versiyasi sinov rejimida ishga tushirildi. </a></marquee>	
+</div>
+-->
+
+<div id="main" align="center">
+	<div class="my_blocks b_left">
+			
+	<div class="panel panel-default">
+		<div class="panel-heading">
+		  <h3 class="panel-title">Talaba menyusi</h3>
+		</div>
+		<div class="panel-body">
+			<div class="stdreg">
+				<form name="frm_log_student" method="post" action="/uz/">
+					<p><input type="text" name="open_w" size="15">&nbsp;Login</p>
+					<p><input type="password" name="secret_w" size="15">&nbsp;<input type="submit" value="Kirish" name="btn_std_log"></p>
+					<center><a href="/uz/reg=student" class="btn btn-small btn-info"><i class="icon-user"></i> Ro`yxatdan o`tish</a></center>
+				</form>
+			</div>
+		</div>
+	</div>
+		
+	<div class="panel panel-default">
+		<div class="panel-heading">
+		  <h3 class="panel-title">Konferensiya</h3>
+		</div>
+		<div class="panel-body">
+			<div class="scrollimg">
+			<a href="http://conf.bimm.uz/" target="_blank"><img src="http://bimm.uz/img/conf.jpg"></a>
+			</div>
+		</div>
+	</div>
+		</div>
+	
+	<div class="my_blocks b_right">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+			  <h3 class="panel-title">&nbsp;</h3>
+			</div>
+			<div class="panel-body"  style="min-height:800px;">
+			
+			<div id="content">
+									</div>
+		
+			</div>
+		</div>
+		
+		<div style="margin-top:60px;bottom:5px;">
+			<a target="_blank" href="http://www.gov.uz" title="O`zbekiston Respublikasi Davlat hukumati portali" id="footer_icon"><img src="http://bimm.uz/img/link/gov_uz.jpg" width="130" height="32" style="border:1px #c0c0c0 solid"></a>
+			<a target="_blank" href="http://www.press-service.uz" title="O`zbekiston Respublikasi Prezidentining Matbuot xizmati" id="footer_icon"><img src="http://bimm.uz/img/link/press-service_uz.jpg" width="130" height="32" style="border:1px #c0c0c0 solid"></a>
+			<a target="_blank" href="http://www.edu.uz" title="Oliy va o`rta-maxsus ta`lim vazirligi" id="footer_icon"><img src="http://bimm.uz/img/link/edu.jpg" width="130" height="32" style="border:1px #c0c0c0 solid"></a>
+			<a target="_blank" href="http://www.uzedu.uz" title="Xalq ta`limi vazirligi" id="footer_icon"><img src="http://bimm.uz/img/link/halq_t_m.jpg" width="130" height="32" style="border:1px #c0c0c0 solid"></a>
+			<a target="_blank" href="http://www.aci.uz" title="O`zbekiston aloqa va axborotlashtirish agentligi" id="footer_icon"><img src="http://bimm.uz/img/link/aci_uz.jpg" width="130" height="32" style="border:1px #c0c0c0 solid"></a>
+			<a target="_blank" href="http://www.ziyonet.uz" title="Ziyonet axborot-ta`lim portali" id="footer_icon"><img src="http://bimm.uz/img/link/ziyonet_uz.jpg" width="130" height="32" style="border:1px #c0c0c0 solid"></a>
+		</div>
+		<iframe src="http://bimm.uz/topr.html" style="width:100%; height:100px; border:0px; overflow:hidden;"> </iframe>
+	</div>
+	
+	<div id="clear"></div>
+
+</div>
+<div id="clear"></div>
+
+<div class="scroll-top" style="display: block;">
+	<a href="#" class="tip-top" title="Go Top"><i class="icon-double-angle-up"></i></a>
+</div>
+
+</body>
+<!-- script type="text/javascript" charset="utf-8">
+var __REPLAIN_ = '094e2dd1-6538-4e94-89cf-08ff262746b7';
+(function(u){var s=document.createElement('script');s.type='text/javascript';s.async=true;s.src=u;
+var x=document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);
+})('https://widget.replain.cc/dist/client.js');
+</script -->
+</html>

@@ -1,0 +1,566 @@
+$(document).ready(function(){	
+
+	$('a[name=delPic]').click(function(){
+		var dir = $(this).attr('class');
+		
+		$.confirm({
+			title: 'Rasmni o\'chirish...',
+			content: 'Agar rasmni rostdan ham o\'chirmoqchi bo\'lsangiz [Ha] tugmasini bosing',
+			confirmButton: 'Ha',
+			confirmButtonClass: 'btn-info',
+			icon: 'fa fa-spinner fa-spin',
+			autoClose: 'cancel|6000',
+			animation: 'rotateX',
+			confirm: function(){
+				$.ajax({
+					type: "GET", 
+					url: "/action.php",
+					data: "deleteImage=true&dir="+dir,
+					success: function(html){
+						location.reload();
+					}
+				});	
+			}
+		});			
+	});	
+	
+	// Yangiliklar	
+	$('a[name=newscontent]').click(function(){
+		var text = $('#editor1').html();
+		var name = $('#newsName').val();
+		$.post( "/actionNews.php", { name: $('#newsName').val(), text: $('#editor1').html() } ).done(function(){ location = "/news"; });
+	});	
+	
+	// Yangilikni o'chirish
+	$('a[name=delTheNews]').click(function(){
+		var nid = $(this).attr('id');
+		
+		$.confirm({
+			title: 'Ma\'lumotni o\'chirmoqchimisiz?',
+			content: 'Agar ma\'lumotni rostdan ham o\'chirmoqchi bo\'lsangiz [Ha] tugmasini bosing',
+			confirmButton: 'Ha',
+			confirmButtonClass: 'btn-info',
+			icon: 'fa fa-spinner fa-spin',
+			autoClose: 'cancel|6000',
+			animation: 'rotateX',
+			confirm: function(){
+				$.ajax({
+					type: "GET", 
+					url: "/actionNews.php",
+					data: "deleteTheNews=true&id="+nid,
+					success: function(html){
+						location.reload();
+					}
+				});	
+			}
+		});			
+	});	
+	
+	// tinglovchilar ro'yxati	
+	$('#rejaGrafig a').click(function(){
+		var cid = $(this).attr('name');
+		var year = $(this).attr('id');
+		var oy = $(this).attr('title');
+		var dir = $(this).attr('class');
+		$.confirm({
+			title: 'Tinglovchilar ro\'xati',
+			cancelButton: false,
+			content: 'url:/seeListeners.php?showlisteners=true&cid='+cid+"&year="+year+"&oy="+oy+"&dir="+dir,
+		});	
+	});	
+
+	//****************** O'xshash tinglovchilarni izlash *********************
+	$('#frm_new_item a[id=searchOldId]').click(function(){
+		var fio = $('#frm_new_item input[name=fam]').val()+' '+$('#frm_new_item input[name=ism]').val()+' '+$('#frm_new_item input[name=oism]').val();
+		//var fio = $('#frm_new_item input[name=fam]').val();
+
+		$.confirm({
+			title: 'O\'xshash tinglovchilar',
+			cancelButton: false,
+			content: 'url:/action.php?findSimilerFIO=true&fio='+fio,
+		});
+		$('#frm_new_item #secondStep').css('display','block');
+	});
+	
+	// tinglovchini qabul qilish uchun izlash
+	$('#searchBlock button[name=searchOldID]').click(function(){
+		$('#searchReaultBlock').css('display','none');
+		var old_id = $('#searchBlock input[name=old_id]').val();
+		$.ajax({
+			type: "GET", 
+			url: "/action.php",
+			data: "searchOldID&old_id="+old_id,
+			success: function(html){
+				$("#searchReaultBlock").html(html);
+				$("#searchReaultBlock").fadeIn(200);   
+			}
+		});
+	});	
+	
+	// yangi portfolio kiritish formasini tekshirish *****************
+	$(function() {
+		$('#pasport_raqami').on('keydown', '#child', function(e){-1!==$.inArray(e.keyCode,[46,8,9,27,13,110,190])||/65|67|86|88/.test(e.keyCode)&&(!0===e.ctrlKey||!0===e.metaKey)||35<=e.keyCode&&40>=e.keyCode||(e.shiftKey||48>e.keyCode||57<e.keyCode)&&(96>e.keyCode||105<e.keyCode)&&e.preventDefault()});
+	})
+	
+	$('#frm_new_item a[name=btn_new_portfolio]').click(function(){
+		var allFaildsFull = true;
+		$('#frm_new_item input[type=text]').each(function(i,v){
+			var txt = $(this).val();
+			if (txt.length < 3){
+				$(this).css({'border':'1px solid red','color':'red'});
+				allFaildsFull = false;
+			}else{
+				$(this).css({'border':'1px solid #d5d5d5','color':'#858585'});
+			}
+		})
+		
+		$('#frm_new_item select').each(function(i,v){
+			var txt = $(this).val();
+			if (txt == -1){
+				$(this).css({'border':'1px solid red'});
+				allFaildsFull = false;
+			}else{
+				$(this).css({'border':'1px solid #d5d5d5','color':'#858585'});
+			}
+		})
+		
+		if(allFaildsFull == true){$('#frm_new_item').submit();}
+		//$('#frm_new_item').submit();
+	})
+
+	
+	// markazlar sahifalarini dinamik yuklash....
+	$('a[name=dynlink]').click(function(){
+		$('#preloader').css('display','block');
+		var id = $(this).attr('id');
+		$.ajax({
+			type: "GET", 
+			url: "/action.php",
+			data: "loadCenterPage=true&id="+id,
+			success: function(html){
+				$(".widget-body").html(html);
+				$('#preloader').css('display','none');
+			}
+		});	
+	});	
+	
+	// Tinglovchining tizimdan chiqishi....
+	$('a[name=singing_out_listener]').click(function(){
+		$.ajax({
+			type: "GET", 
+			url: "/action.php",
+			data: "listenerSingOut=true",
+			success: function(html){
+				$(".main-content").html(html);
+				location.reload();
+			}
+		});	
+	});		
+	
+	// tizimdan chiqish....
+	$('a[name=singing_out_user]').click(function(){
+		$.ajax({
+			type: "GET", 
+			url: "/action.php",
+			data: "userSingOut=true",
+			success: function(html){
+				$(".main-content").html(html);
+				location.reload();
+			}
+		});	
+	});	
+	
+	// tizimga kirish....
+	$('a[name=singing_in_user]').click(function(){
+		$.confirm({
+			title: 'Avtorizatsiya',
+			cancelButton: false,
+			confirmButton: false,
+			content: 'url:/inc/loginUser.php',
+		});	
+	});
+	
+	// qabul haqidagi buyruq nomerini kiritish uchun tinglovchilar ro\'yxatini yuklash
+	$('#acceptDirs a').click(function(){
+		var dir = $(this).attr('name');
+		$('#acceptDirs a').not('a[name='+dir+']').css({'display':'none'});
+		$.ajax({
+			type: "GET", 
+			url: "/action.php",
+			data: "LoadListenersForAccept=true&dir="+dir,
+			success: function(html){
+				$("#acceptBlock").html(html);
+			},
+			error: function( html ){
+				alert('XATOLIK!');
+			}
+		});	
+	});		
+	// davomadni kiritish uchun tinglovchilar ro\'yxatini yuklash
+	$('#attendDirs a').click(function(){
+		var dir = $(this).attr('name');
+		$('#attendDirs a').not('a[name='+dir+']').css({'display':'none'});
+		$.ajax({
+			type: "GET", 
+			url: "/action.php",
+			data: "LoadListenersForAttend=true&dir="+dir,
+			success: function(html){
+				$("#attendBlock").html(html);
+			},
+			error: function( html ){
+				alert('XATOLIK!');
+			}
+		});	
+	});		
+		
+	// Asisment baholarini kiritish uchun tinglovchilar ro\'yxatini yuklash
+	$('#markDirs a').click(function(){
+		var dir = $(this).attr('name');
+		$('#markDirs a').not('a[name='+dir+']').css({'display':'none'});
+		$.ajax({
+			type: "GET", 
+			url: "/action.php",
+			data: "LoadListenersForMark=true&dir="+dir,
+			success: function(html){
+				$("#markBlock").html(html);
+			}
+		});	
+	});	
+	
+	// Portfolio baholarini ko'rish uchun tinglovchilar ro'yxatini yuklash
+	$('#portfDirs a').click(function(){
+		var dir = $(this).attr('name');
+		$('#portfDirs a').not('a[name='+dir+']').css({'display':'none'});
+		$.ajax({
+			type: "GET", 
+			url: "/action.php",
+			data: "LoadListenersForPortf=true&dir="+dir,
+			success: function(html){
+				$("#portfBlock").html(html);
+			}
+		});	
+	});		
+			
+	// Kurs yakunini kiritish uchun tinglovchilar ro\'yxatini yuklash
+	$('#finishDirs a').click(function(){
+		var dir = $(this).attr('name');
+		$('#finishDirs a').not('a[name='+dir+']').css({'display':'none'});
+		$.ajax({
+			type: "GET", 
+			url: "/action.php",
+			data: "LoadListenersForFinish=true&dir="+dir,
+			success: function(html){
+				$("#finishBlock").html(html);
+			}
+		});	
+	});		
+	
+	// Amaliyot natijalarini kiritish uchun tinglovchilar ro\'yxatini yuklash
+	$('#pracDirs a').click(function(){
+		var dir = $(this).attr('name');
+		$('#pracDirs a').not('a[name='+dir+']').css({'display':'none'});
+		$.ajax({
+			type: "GET", 
+			url: "/action.php",
+			data: "LoadListenersForPrac=true&dir="+dir,
+			success: function(html){
+				$("#pracBlock").html(html);
+			}
+		});	
+	});	
+	
+	// Safdan chiqarish uchun tinglovchilar ro\'yxatini yuklash
+	$('#removeDirs a').click(function(){
+		var dir = $(this).attr('name');
+		$('#removeDirs a').not('a[name='+dir+']').css({'display':'none'});
+		$.ajax({
+			type: "GET", 
+			url: "/action.php",
+			data: "LoadListenersForRemove=true&dir="+dir,
+			success: function(html){
+				$("#removeBlock").html(html);
+			}
+		});	
+	});	
+	
+	// Hisobot uchun tinglovchilar ro\'yxatini yuklash
+	$('#reportDirs a').click(function(){
+		var dir = $(this).attr('name');
+		$('#reportDirs a').not('a[name='+dir+']').css({'display':'none'});
+		$.ajax({
+			type: "GET", 
+			url: "/action.php",
+			data: "LoadListenersReport=true&dir="+dir,
+			success: function(html){
+				$("#reportBlock").html(html);
+			}
+		});	
+	});		
+	
+	
+	
+	
+	var h = $(window).height()-250;
+	$('iframe').height( h + 'px' );
+	
+	$(window).resize(function(){
+		var h = $(window).height()-250;
+		$('iframe').height( h + 'px' );
+	})
+
+
+	//**************************************************//
+	//					set local date					//
+	//**************************************************//
+	
+	$('#dateSettings #switch').change(function(){
+ 		if (!$(this).is(':checked')){
+			$(this).closest('#dateSettings').find('#range').val(0);
+			$(this).closest('#dateSettings').find('#range_val').html('<b>0</b>');
+		}
+	});	
+	
+	//*************** range qiymatini kamaytirish ******************
+	$('#dateSettings #backward').click(function(){
+		var cval = $(this).closest('#dateSettings').find('#range').val();
+		if (cval > 0){
+			var nval = cval-1;
+			$(this).closest('#dateSettings').find('#range').val(nval);
+			$(this).closest('#dateSettings').find('#range_val').html('<b>'+nval+'</b>');
+		}
+	});	
+	
+	//*************** range qiymatini oshirish ******************
+	$('#dateSettings #forward').click(function(){
+		var cval = Number($(this).closest('#dateSettings').find('#range').val());
+		var max = Number($(this).closest('#dateSettings').find('#range').attr('max'));
+		if (cval < max){
+			var nval = Number(cval+1);
+			$(this).closest('#dateSettings').find('#range').val(nval);
+			$(this).closest('#dateSettings').find('#range_val').html('<b>'+nval+'</b>');
+		}
+	});		
+	
+	$('#dateSettings #range').change(function(){
+		$(this).closest('#dateSettings').find('#range_val').html('<b>'+$(this).val()+'</b>');
+	});	
+	
+	//*************** range lar qiymatini bazaga yozish ******************
+	$('#localDate button[name=btn_set_date]').click(function(){
+		var yil = $(this).closest('#localDate').find('input[name=range_year]').val();
+		var oy = $(this).closest('#localDate').find('input[name=range_manth]').val();
+		var kun = $(this).closest('#localDate').find('input[name=range_day]').val();
+		var hour = $(this).closest('#localDate').find('input[name=range_hour]').val();
+		$.ajax({
+			type: "GET", 
+			url: "/action2.php",
+			data: "setLocalDate=true&year="+yil+"&manth="+oy+"&day="+kun+"&hour="+hour,
+			success: function(html){
+				$("#emptyDiv").html(html);
+				location.reload();
+			}
+		});	
+	})
+	
+	//**************************************************//
+	//			set current assisment number			//
+	//**************************************************//	
+	$('#currAssis button[name=btn_set_current_assisment]').click(function(){
+		var curAssis = $(this).closest('#currAssis').find('select[name=ca]').val();
+		$.ajax({
+			type: "GET", 
+			url: "/action2.php",
+			data: "setCurrAssis=true&currassis="+curAssis,
+			success: function(html){
+				$("#emptyDiv").html(html);
+				location.reload();
+			}
+		});	
+	})
+	
+	//**************************************************//
+	//			allow to add/create listeners			//
+	//**************************************************//
+	
+	$('#lisSettings #range').change(function(){
+		$(this).closest('#lisSettings').find('#range_val').html('<b>'+$(this).val()+'</b>');
+	});		
+	//*************** range qiymatini kamaytirish ******************
+	$('#lisSettings #backward').click(function(){
+		var cval = $(this).closest('#lisSettings').find('#range').val();
+		if (cval > 0){
+			var nval = cval-1;
+			$(this).closest('#lisSettings').find('#range').val(nval);
+			$(this).closest('#lisSettings').find('#range_val').html('<b>'+nval+'</b>');
+		}
+	});	
+	
+	//*************** range qiymatini oshirish ******************
+	$('#lisSettings #forward').click(function(){
+		var cval = Number($(this).closest('#lisSettings').find('#range').val());
+		var max = Number($(this).closest('#lisSettings').find('#range').attr('max'));
+		if (cval < max){
+			var nval = Number(cval+1);
+			$(this).closest('#lisSettings').find('#range').val(nval);
+			$(this).closest('#lisSettings').find('#range_val').html('<b>'+nval+'</b>');
+		}
+	});	
+	
+	//*************** range lar qiymatini bazaga yozish ******************
+	$('#dateToAddLis button[name=btn_set_lis]').click(function(){
+		var start = $(this).closest('#dateToAddLis').find('input[name=range_start]').val();
+		var end = $(this).closest('#dateToAddLis').find('input[name=range_and]').val();
+		$.ajax({
+			type: "GET", 
+			url: "/action2.php",
+			data: "setDateACLis=true&start="+start+"&end="+end,
+			success: function(html){
+				$("#emptyDiv").html(html);
+				location.reload();
+			}
+		});	
+	})	
+		
+
+	
+	//**************************************************//
+	//					set test date					//
+	//**************************************************//
+	
+	$('#testSettings #switch').change(function(){
+ 		if (!$(this).is(':checked')){
+			$(this).closest('#testSettings').find('#range').val(0);
+			$(this).closest('#testSettings').find('#range_val').html('<b>0</b>');
+		}
+	});	
+	
+	//*************** range qiymatini kamaytirish ******************
+	$('#testSettings #backward').click(function(){
+		var cval = $(this).closest('#testSettings').find('#range').val();
+		if (cval > 0){
+			var nval = cval-1;
+			$(this).closest('#testSettings').find('#range').val(nval);
+			$(this).closest('#testSettings').find('#range_val').html('<b>'+nval+'</b>');
+		}
+	});	
+	
+	//*************** range qiymatini oshirish ******************
+	$('#testSettings #forward').click(function(){
+		var cval = Number($(this).closest('#testSettings').find('#range').val());
+		var max = Number($(this).closest('#testSettings').find('#range').attr('max'));
+		if (cval < max){
+			var nval = Number(cval+1);
+			$(this).closest('#testSettings').find('#range').val(nval);
+			$(this).closest('#testSettings').find('#range_val').html('<b>'+nval+'</b>');
+		}
+	});		
+	
+	$('#testSettings #range').change(function(){
+		$(this).closest('#testSettings').find('#range_val').html('<b>'+$(this).val()+'</b>');
+	});	
+	
+	//*************** range lar qiymatini bazaga yozish ******************
+	$('#dateToTest button[name=btn_set_testDate]').click(function(){
+		var sIT = $(this).closest('#dateToTest').find('input[name=range_startIT]').val();
+		var eIT = $(this).closest('#dateToTest').find('input[name=range_andIT]').val();
+		var sTT = $(this).closest('#dateToTest').find('input[name=range_startTT]').val();
+		var eTT = $(this).closest('#dateToTest').find('input[name=range_andTT]').val();
+		
+		$.ajax({
+			type: "GET", 
+			url: "/action2.php",
+			data: "setTestDate=true&sIT="+sIT+"&eIT="+eIT+"&sTT="+sTT+"&eTT="+eTT,
+			success: function(html){
+				$("#emptyDiv").html(html);
+				location.reload();
+			}
+		});	
+	})
+
+
+	//**************************************************//
+	//				let listener to retest				//
+	//**************************************************//
+
+	$('#searchBlockAdmin button[name=searchListener]').click(function(){
+		$('#searchReaultBlockAdmin').css('display','none');
+		var old_id1 = $('#searchBlockAdmin input[name=old_id1]').val();
+		var old_id2 = $('#searchBlockAdmin input[name=old_id2]').val();
+		//alert(old_id1+"-"+old_id2);
+		$.ajax({
+			type: "GET", 
+			url: "/action2.php",
+			data: "searchListener&oldid1="+old_id1+"&oldid2="+old_id2,
+			success: function(html){
+				$("#searchReaultBlockAdmin").html(html);
+				$('#searchReaultBlockAdmin').css('display','block');
+				//$("#searchReaultBlockAdmin").fadeIn(200);   
+			}
+		});
+	});
+	//**************************************************//
+	$('#searchBlockAdmin2 button[name=searchListenet2]').click(function(){
+		$('#searchReaultBlockAdmin2').css('display','none');
+		var old_id = $('#searchBlockAdmin2 input[name=old_id]').val();
+		$.ajax({
+			type: "GET", 
+			url: "/action2.php",
+			data: "searchListenet2&old_id="+old_id,
+			success: function(html){
+				$("#searchReaultBlockAdmin2").html(html);
+				$("#searchReaultBlockAdmin2").fadeIn(200);   
+			}
+		});
+	});
+	
+	
+	$('select[name=sel_otm]').change(function(){
+		var otm = $(this).val();
+		$.ajax({
+			type: "GET", 
+			url: "/action2.php",
+			data: "setSelectedOTM&otm="+otm,
+			success: function(html){
+				$("#emptyDiv").html(html);
+				location.reload();
+			}
+		});
+	});
+	
+	$('a[name=nextListener]').click(function(){
+		var id = $(this).attr('id');
+		$.confirm({
+			title: 'Malaka oshirish kursi',
+			cancelButton: false,
+			content: 'url:/action2.php?loadNextlistenerDetails=true&id='+id,
+		});
+	});
+	
+	// markazga yangi yo'nalish qo'shish formasini chiqarish
+	$('a[name=addNewDir]').click(function(){
+		var cid = $(this).attr('id');
+		$.confirm({
+			title: 'Yo\'nalish qo\'shish',
+			content: 'url:/action2.php?loadAddNewDirForm=true&cid='+cid,
+		});
+	});
+	
+	// markaz yo'nalishi tarkibiga kiruvchi yo'nalish qo'shish formasini chiqarish
+	$('a[name=addNewDirIn]').click(function(){
+		var cid = $(this).attr('id');
+		var did = $(this).attr('class');
+		$.confirm({
+			title: 'Qism yo\'nalish qo\'shish',
+			content: 'url:/action2.php?loadAddNewDirInForm=true&cid='+cid+'&did='+did,
+		});
+	});	
+	
+	// markaz rejasiga qiymat qo'shish
+	$('a[name=addPlan]').click(function(){
+		var cid = $(this).attr('id');
+		$.confirm({
+			title: 'Reja kiritish',
+			content: 'url:/action2.php?loadAddPlanForm=true&cid='+cid,
+		});
+	});	
+})
