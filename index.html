@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			.left_fixed{
+				top:100px;
+				left: 5px;
+				position:fixed;			
+				
+			}
+			.img_fixed{
+				width:50px;
+				height:50px;
+				margin-top:5px;
+				border-radius:5px;
+				display:block;
+			}
+			.img_fixed:hover{
+				width:60px;
+				height:60px;
+				cursor:pointer;
+			}
+			
+			.arrow { 
+			  width: 0; 
+			  height: 0; 
+			  border: 25px solid transparent;
+			}
+			.arrow:hover{
+				border: 30px solid transparent;
+				cursor:pointer;
+				
+			}
+
+			.up, .up:hover {
+			  border-top-color: #232323;
+			}
+			
+			.upnoactive, .upnoactive:hover {
+			  border-top-color: #737373;
+			}
+
+			.down, .down:hover {
+			  border-bottom-color: #232323;
+			}
+
+			.downnoactive, .downnoactive:hover {
+			  border-bottom-color: #737373;
+			}
+
+			.left {
+			  border-left-color: #232323;
+			}
+
+			.right {
+			  border-right-color: #232323;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="left_fixed">
+			<div class="arrow down" onclick="show(1)" id="tepaga"></div>
+			<img id="img1" src="icons/facebook.png" class="img_fixed"/>
+			<img id="img2" src="icons/twitter.jpg" class="img_fixed"/>
+			<img id="img3" src="icons/gmail.png" class="img_fixed"/>
+			<img id="img4" src="icons/telegram.png" class="img_fixed"/>
+			<img id="img5" src="icons/imo.png" class="img_fixed"/>
+			<img id="img6" src="icons/instagram.jpg" class="img_fixed"/>
+			<div class="arrow up" onclick="show(2)" id="pastga" style="margin-top: 5px"></div>
+		</div>
+		<div style="position:relative; left:250px">
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		<p>matn	</p>
+		</div>
+	</body>
+	<script>
+	
+	var id=2;
+	if(id==2)
+	{
+		document.getElementById('img4').style.display="none";
+		document.getElementById('img5').style.display="none";
+		document.getElementById('img6').style.display="none";
+	}
+	function show(fid){
+		document.getElementById('img1').style.display="none";
+		document.getElementById('img2').style.display="none";
+		document.getElementById('img3').style.display="none";
+		document.getElementById('img4').style.display="none";
+		document.getElementById('img5').style.display="none";
+		document.getElementById('img6').style.display="none";
+		if(fid==1){
+			document.getElementById('img1').style.display="block";
+			document.getElementById('img2').style.display="block";
+			document.getElementById('img3').style.display="block";
+			document.getElementById('tepaga').className = "arrow downnoactive"
+			document.getElementById('pastga').className = "arrow up"
+		}
+		else{
+			document.getElementById('img4').style.display="block";
+			document.getElementById('img5').style.display="block";
+			document.getElementById('img6').style.display="block";
+			document.getElementById('tepaga').className = "arrow down"
+			document.getElementById('pastga').className = "arrow upnoactive"
+		}
+	}
+		
+	</script>
+	}
+</html
